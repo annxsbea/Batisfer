@@ -228,9 +228,19 @@ export default function Home() {
         animate="visible"
         variants={sectionVariants}
       >
-        <div className="container mx-auto text-center px-4 text-black">
+        <div className="container mx-auto text-center px-4">
           <h2 className="text-4xl font-semibold mb-4">Entre em Contato</h2>
-          <p className="text-lg">Rua Cesário Galeno, 4480 – Centro – São Paulo/SP CEP 01153000</p>
+          <p className="text-lg">Rua Cesário Alvim, 416 - Belenzinho, São Paulo - SP, Brasil</p>
+          <p className="text-lg">(11) 91062-3744</p>
+          <a href="mailto:vendas@acosg20.com.br" className="text-blue-500 hover:underline">vendas@acosg20.com.br</a>
+          <div className="mt-4">
+            <a
+              href="https://api.whatsapp.com/send?1=pt_BR&phone=5511910623744"
+              className="bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600"
+            >
+              Fale conosco pelo WhatsApp
+            </a>
+          </div>
         </div>
       </motion.section>
 
