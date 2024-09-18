@@ -114,35 +114,35 @@ export default function Home() {
             <a
               href="#home"
               onClick={toggleMenu} // Fechar menu ao clicar
-              className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-2  border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${activeSection === 'home' ? '' : ''}`}
             >
               Home
             </a>
             <a
               href="#quem-somos"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${activeSection === 'quem-somos' ? '' : ''}`}
             >
               Quem Somos
             </a>
             <a
               href="#servicos"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${activeSection === 'servicos' ? '' : ''}`}
             >
               Serviços
             </a>
             <a
               href="#materiais"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'materiais' ? 'border-b-4 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${activeSection === 'materiais' ? '' : ''}`}
             >
               Materiais
             </a>
             <a
               href="#contato"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${activeSection === 'contato' ? '' : ''}`}
             >
               Contato
             </a>
