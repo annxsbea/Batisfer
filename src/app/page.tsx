@@ -6,6 +6,10 @@ import { useState, useEffect } from 'react';
 import HomeImage from '../assents/Home.png';
 import Logo from '../assents/Logo.png';
 import { motion } from 'framer-motion';
+import Contato from './pages/Contato';
+import Materiais from './pages/Materiais';
+import QuemSomos from './pages/QuemSomos';
+import Servicos from './pages/Servicos';
 
 // Definindo animações
 const sectionVariants = {
@@ -161,88 +165,11 @@ export default function Home() {
         <Image src={HomeImage} alt="Home" layout="fill" objectFit="cover" className="opacity-30" />
       </motion.section>
 
-      {/* Seção Quem Somos */}
-      <motion.section
-        id="quem-somos"
-        className="min-h-screen bg-white flex items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        variants={sectionVariants}
-      >
-        <div className="container mx-auto text-center px-4 text-black" >
-          <h2 className="text-4xl font-semibold mb-4">Sobre Nós</h2>
-          <p className="text-lg text-gray-700">
-            Este é o espaço para apresentar o negócio ou a marca aos visitantes. Conte sobre a equipe, missão e diferenciais.
-          </p>
-        </div>
-      </motion.section>
 
-      {/* Seção Serviços */}
-      <motion.section
-        id="servicos"
-        className="min-h-screen bg-gray-100 flex items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        variants={sectionVariants}
-      >
-        <div className="container mx-auto text-center px-4 text-black">
-          <h2 className="text-4xl font-semibold mb-4">Serviços</h2>
-          <p className="text-lg text-gray-700">
-            Resuma os tipos de serviços oferecidos e destaque benefícios ou recursos especiais.
-          </p>
-        </div>
-      </motion.section>
-
-      {/* Seção Materiais */}
-      <motion.section
-        id="materiais"
-        className="min-h-screen bg-white flex items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        variants={sectionVariants}
-      >
-        <div className="container mx-auto text-center px-4 text-black">
-          <h2 className="text-4xl font-semibold mb-4  ">Materiais</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div>
-              <h3 className="text-2xl">Título do produto 1</h3>
-              <p>Adicione uma breve descrição que inclua detalhes relevantes.</p>
-            </div>
-            <div>
-              <h3 className="text-2xl">Título do produto 2</h3>
-              <p>Adicione uma breve descrição que inclua detalhes relevantes.</p>
-            </div>
-            <div>
-              <h3 className="text-2xl">Título do produto 3</h3>
-              <p>Adicione uma breve descrição que inclua detalhes relevantes.</p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Seção Contato */}
-      <motion.section
-        id="contato"
-        className="min-h-screen bg-gray-100 flex items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        variants={sectionVariants}
-      >
-        <div className="container mx-auto text-center px-4">
-          <h2 className="text-4xl font-semibold mb-4">Entre em Contato</h2>
-          <p className="text-lg">Rua Cesário Alvim, 416 - Belenzinho, São Paulo - SP, Brasil</p>
-          <p className="text-lg">(11) 91062-3744</p>
-          <a href="mailto:vendas@acosg20.com.br" className="text-blue-500 hover:underline">vendas@acosg20.com.br</a>
-          <div className="mt-4">
-            <a
-              href="https://api.whatsapp.com/send?1=pt_BR&phone=5511910623744"
-              className="bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600"
-            >
-              Fale conosco pelo WhatsApp
-            </a>
-          </div>
-        </div>
-      </motion.section>
+      <QuemSomos/>
+      <Servicos/>
+      <Materiais/>
+      <Contato/>
 
       <footer className="bg-black text-white py-4 text-center">
         <p>&copy; 2024 Nome da Empresa. Todos os direitos reservados.</p>
