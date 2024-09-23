@@ -3,100 +3,100 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-interface ContactFormData {
-    name: string;
-    email: string;
-    company: string;
-    cnpj: string;
-    phone: string;
-    message: string;
-    attachment: File | null;
-}
+// interface ContactFormData {
+//     name: string;
+//     email: string;
+//     company: string;
+//     cnpj: string;
+//     phone: string;
+//     message: string;
+//     attachment: File | null;
+// }
 export default function Contato() {
-    const [formData, setFormData] = useState<ContactFormData>({
-        name: '',
-        email: '',
-        company: '',
-        cnpj: '',
-        phone: '',
-        message: '',
-        attachment: null,
-    });
+//     const [formData, setFormData] = useState<ContactFormData>({
+//         name: '',
+//         email: '',
+//         company: '',
+//         cnpj: '',
+//         phone: '',
+//         message: '',
+//         attachment: null,
+//     });
 
     const [isLoading, setIsLoading] = useState(false);
     const [status, setStatus] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
+//         const { name, value } = e.target;
 
-        // Para arquivos, especialmente o anexo
-        if (e.target.type === "file") {
-            setFormData({
-                ...formData,
-                [name]: (e.target as HTMLInputElement).files ? (e.target as HTMLInputElement).files![0] : null,
-            });
-        } else {
-            setFormData({
-                ...formData,
-                [name]: value,
-            });
-        }
+//         // Para arquivos, especialmente o anexo
+//         if (e.target.type === "file") {
+//             setFormData({
+//                 ...formData,
+//                 [name]: (e.target as HTMLInputElement).files ? (e.target as HTMLInputElement).files![0] : null,
+//             });
+//         } else {
+//             setFormData({
+//                 ...formData,
+//                 [name]: value,
+//             });
+//         }
     };
 
   
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsLoading(true); 
+    //     e.preventDefault();
+    //     setIsLoading(true); 
         
-        if (formData.attachment) {
-            const reader = new FileReader();
+    //     if (formData.attachment) {
+    //         const reader = new FileReader();
             
-            reader.onloadend = async () => {
-                const base64data = reader.result?.toString().split(',')[1]; 
-                const response = await fetch('/api/send', {
-                    method: 'POST', // Certifique-se de que é POST
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name: formData.name,
-                        email: formData.email,
-                        company: formData.company,
-                        cnpj: formData.cnpj,
-                        phone: formData.phone,
-                        message: formData.message,
+    //         reader.onloadend = async () => {
+    //             const base64data = reader.result?.toString().split(',')[1]; 
+    //             const response = await fetch('/api/send', {
+    //                 method: 'POST', // Certifique-se de que é POST
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify({
+    //                     name: formData.name,
+    //                     email: formData.email,
+    //                     company: formData.company,
+    //                     cnpj: formData.cnpj,
+    //                     phone: formData.phone,
+    //                     message: formData.message,
                         
-                    }),
-                });
+    //                 }),
+    //             });
                 
 
-                const result = await response.json();
-                setStatus(result.success ? 'Mensagem enviada com sucesso!' : 'Erro ao enviar mensagem');
-                setIsLoading(false); 
-            };
+    //             const result = await response.json();
+    //             setStatus(result.success ? 'Mensagem enviada com sucesso!' : 'Erro ao enviar mensagem');
+    //             setIsLoading(false); 
+    //         };
 
-            reader.readAsDataURL(formData.attachment);
-        } else {
-            const response = await fetch('/api/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    company: formData.company,
-                    cnpj: formData.cnpj,
-                    phone: formData.phone,
-                    message: formData.message,
-                    attachment: null, 
-                }),
-            });
+    //         reader.readAsDataURL(formData.attachment);
+    //     } else {
+    //         const response = await fetch('/api/send', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({
+    //                 name: formData.name,
+    //                 email: formData.email,
+    //                 company: formData.company,
+    //                 cnpj: formData.cnpj,
+    //                 phone: formData.phone,
+    //                 message: formData.message,
+    //                 attachment: null, 
+    //             }),
+    //         });
 
-            const result = await response.json();
-            setStatus(result.success ? 'Mensagem enviada com sucesso!' : 'Erro ao enviar mensagem');
-            setIsLoading(false);
-        }
+    //         const result = await response.json();
+    //         setStatus(result.success ? 'Mensagem enviada com sucesso!' : 'Erro ao enviar mensagem');
+    //         setIsLoading(false);
+    //     }
     };
 
 
@@ -123,7 +123,7 @@ export default function Contato() {
                                         name="name"
                                         required
                                         className="w-full p-2 border border-gray-300 rounded text-black"
-                                        value={formData.name}
+                                        // value={formData.name}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -137,7 +137,7 @@ export default function Contato() {
                                         name="email"
                                         required
                                         className="w-full p-2 border border-gray-300 rounded text-black"
-                                        value={formData.email}
+                                        // value={formData.email}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -150,7 +150,7 @@ export default function Contato() {
                                         id="company"
                                         name="company"
                                         className="w-full p-2 border border-gray-300 rounded text-black"
-                                        value={formData.company}
+                                        // value={formData.company}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -163,7 +163,7 @@ export default function Contato() {
                                         id="cnpj"
                                         name="cnpj"
                                         className="w-full p-2 border border-gray-300 rounded text-black"
-                                        value={formData.cnpj}
+                                        // value={formData.cnpj}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -177,7 +177,7 @@ export default function Contato() {
                                         name="phone"
                                         required
                                         className="w-full p-2 border border-gray-300 rounded text-black"
-                                        value={formData.phone}
+                                        // value={formData.phone}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -190,7 +190,7 @@ export default function Contato() {
                                         name="message"
                                         required
                                         className="w-full p-2 border border-gray-300 rounded text-black"
-                                        value={formData.message}
+                                        // value={formData.message}
                                         onChange={handleChange}
                                     />
                                 </div>
