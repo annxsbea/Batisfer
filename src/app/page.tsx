@@ -58,7 +58,9 @@ export default function Home() {
       {/* Navbar fixa */}
       <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center px-4 md:px-0">
-        <Image src={Logo} alt="Logo" width={80} height={80} className="w-auto h-auto" priority />
+        <Image src={Logo} alt="Logo"  width={250}
+        height={250}
+        className="w-48 h-auto sm:w-52 md:w-48 lg:w-48" priority />
 
           {/* Botão de menu para dispositivos móveis */}
           <button
@@ -78,7 +80,7 @@ export default function Home() {
           </button>
 
           {/* Menu em dispositivos maiores (desktop) */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-6 text-lg">
             <a
               href="#home"
               className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}
