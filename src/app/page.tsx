@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import HomeImage from "../assents/Home.png";
 import { motion } from "framer-motion";
 import Contato from "./pages/Contato";
@@ -83,10 +83,12 @@ export default function Home() {
         rel="noopener noreferrer"
         aria-label="WhatsApp"
     >
-        <img
+        <Image
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
             alt="WhatsApp"
             className="w-12 h-12"
+            width={100}
+            height={100}
         />
     </a>
      <Footer/>
