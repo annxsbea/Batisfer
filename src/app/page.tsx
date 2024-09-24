@@ -15,36 +15,36 @@ const sectionVariants = {
 };
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("home");
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [, setActiveSection] = useState("home");
+  // // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        "home",
-        "quem-somos",
-        "servicos",
-        "produtos",
-        "contato",
-      ];
-      let currentSection = "home";
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = [
+  //       "home",
+  //       "quem-somos",
+  //       "servicos",
+  //       "produtos",
+  //       "contato",
+  //     ];
+  //     let currentSection = "home";
 
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-        if (element && window.scrollY >= element.offsetTop - 100) {
-          currentSection = section;
-        }
-      });
+  //     sections.forEach((section) => {
+  //       const element = document.getElementById(section);
+  //       if (element && window.scrollY >= element.offsetTop - 100) {
+  //         currentSection = section;
+  //       }
+  //     });
 
-      setActiveSection(currentSection);
-    };
+  //     setActiveSection(currentSection);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   // Alterna o menu aberto/fechado
   // const toggleMenu = () => {
