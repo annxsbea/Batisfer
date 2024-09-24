@@ -1,4 +1,4 @@
-// pages/produto/[id].tsx
+'use client';
 import { useRouter } from 'next/router';
 
 const ProdutoPage = () => {

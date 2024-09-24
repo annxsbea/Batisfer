@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import HomeImage from '../assents/Home.png';
 import Image from 'next/image';
 
