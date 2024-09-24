@@ -4,14 +4,12 @@ import Image from "next/image";
 import Logo from "../../../assents/Logo.png";
 import Link from "next/link";
 
-// Importando os componentes do Shadcn
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Função para monitorar a rolagem e atualizar a seção ativa
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "quem-somos", "servicos", "produtos", "contato"];
@@ -34,7 +32,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // Alterna o menu aberto/fechado
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -53,7 +50,6 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Botão de menu para dispositivos móveis */}
         <button
           className="md:hidden text-gray-700 focus:outline-none"
           onClick={toggleMenu}
@@ -75,7 +71,6 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Menu em dispositivos maiores (desktop) */}
         <nav className="hidden md:flex space-x-6 text-lg">
           <a
             href="#home"
@@ -90,7 +85,6 @@ const Navbar = () => {
             Quem Somos
           </a>
 
-          {/* Dropdown de Produtos usando Shadcn */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <a
@@ -144,7 +138,6 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Menu dropdown em dispositivos móveis */}
       {isMenuOpen && (
         <nav className="md:hidden flex flex-col space-y-4 mt-4 px-4">
           <a

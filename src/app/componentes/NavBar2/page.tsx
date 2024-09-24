@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../../../assents/Logo.png'; // Atualize o caminho para sua logo
+import Logo from '../../../assents/Logo.png'; 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"; // Importando os componentes do Shadcn
 
 export default function NavbarProdutos() {
@@ -11,7 +11,7 @@ export default function NavbarProdutos() {
         <div>
           <Link href="/">
             <Image
-              src={Logo} // Usando sua logo
+              src={Logo} 
               alt="Logo"
               width={150}
               height={50}
@@ -20,11 +20,9 @@ export default function NavbarProdutos() {
           </Link>
         </div>
 
-        {/* Links de navegação */}
         <nav className="flex space-x-6 text-lg">
           <Link href="/">Home</Link>
 
-          {/* Dropdown de Produtos usando Shadcn */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Link href="/" className="hover:text-gray-400">
