@@ -22,7 +22,6 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Função para monitorar a rolagem e atualizar a seção ativa
   useEffect(() => {
     const handleScroll = () => {
       const sections = [

@@ -1,5 +1,6 @@
 'use client';
 import Navbar2 from "@/app/componentes/NavBar2/page";
+import Footer from "@/app/componentes/Rodape/page";
 import Image from "next/image";
 
 const produtosChapas = [
@@ -45,6 +46,7 @@ export default function ChapasPage() {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
