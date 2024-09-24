@@ -14,7 +14,7 @@ export default function Contato() {
 
       <motion.section
         id="servicos"
-        className="min-h-screen bg-gray-100 flex items-center justify-center"
+        className="min-h-screen flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}

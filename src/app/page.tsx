@@ -11,7 +11,7 @@ import Materiais from "./pages/Materiais";
 import QuemSomos from "./pages/QuemSomos";
 import Servicos from "./pages/Servicos";
 import Navbar from "./componentes/NavBar/page";
-
+import Footer from "./componentes/Rodape/page";
 // Definindo animações
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <div>
   
-      <Navbar />
+      <Navbar/>
      
       {/* Seção Home */}
       <motion.section
@@ -81,10 +81,20 @@ export default function Home() {
       <QuemSomos />
       <Servicos />
       <Contato />
-
-      <footer className="bg-black text-white py-4 text-center">
-        <p>&copy; 2024 Nome da Empresa. Todos os direitos reservados.</p>
-      </footer>
+      <a
+        href="https://api.whatsapp.com/send?phone=5511980976575" // Substitua pelo seu número do WhatsApp
+        className="fixed bottom-10 right-6"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp"
+    >
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+            className="w-12 h-12"
+        />
+    </a>
+     <Footer/>
     </div>
   );
 }
