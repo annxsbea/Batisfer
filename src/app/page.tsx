@@ -1,18 +1,14 @@
 'use client';
 
-import Head from "next/head";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import HomeImage from "../assents/Home.png";
-import Logo from "../assents/Logo.png";
 import { motion } from "framer-motion";
 import Contato from "./pages/Contato";
-import Materiais from "./pages/Materiais";
 import QuemSomos from "./pages/QuemSomos";
 import Servicos from "./pages/Servicos";
 import Navbar from "./componentes/NavBar/page";
 import Footer from "./componentes/Rodape/page";
-// Definindo animações
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -20,7 +16,7 @@ const sectionVariants = {
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,9 +47,9 @@ export default function Home() {
   }, []);
 
   // Alterna o menu aberto/fechado
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
 
   return (
     <div>

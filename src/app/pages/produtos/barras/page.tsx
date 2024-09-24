@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import Navbar2 from "@/app/componentes/NavBar2/page";
 import Image from "next/image";
 import { useRouter } from 'next/navigation'; // Importando de next/navigation
