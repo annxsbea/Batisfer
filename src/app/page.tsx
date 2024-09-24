@@ -10,6 +10,7 @@ import Contato from "./pages/Contato";
 import Materiais from "./pages/Materiais";
 import QuemSomos from "./pages/QuemSomos";
 import Servicos from "./pages/Servicos";
+import Navbar from "./componentes/NavBar/page";
 
 // Definindo animações
 const sectionVariants = {
@@ -28,7 +29,7 @@ export default function Home() {
         "home",
         "quem-somos",
         "servicos",
-        "materiais",
+        "produtos",
         "contato",
       ];
       let currentSection = "home";
@@ -57,203 +58,9 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Minha Página</title>
-      </Head>
-
-      {/* Navbar fixa */}
-      <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
-        <div className="container mx-auto flex justify-between items-center px-4 md:px-0">
-          <Image
-            src={Logo}
-            alt="Logo"
-            width={250}
-            height={250}
-            className="w-48 h-auto sm:w-52 md:w-48 lg:w-48"
-            priority
-          />
-
-          {/* Botão de menu para dispositivos móveis */}
-          <button
-            className="md:hidden text-gray-700 focus:outline-none"
-            onClick={toggleMenu}
-            aria-label="Abrir menu de navegação"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
-
-          {/* Menu em dispositivos maiores (desktop) */}
-          {/* Menu em dispositivos maiores (desktop) */}
-          <nav className="hidden md:flex space-x-6 text-lg">
-            <a
-              href="#home"
-              className={`hover:text-gray-400 ${
-                activeSection === "home" ? "border-b-4 border-red-500" : ""
-              }`}
-            >
-              Home
-            </a>
-            <a
-              href="#quem-somos"
-              className={`hover:text-gray-400 ${
-                activeSection === "quem-somos"
-                  ? "border-b-1 border-red-500"
-                  : ""
-              }`}
-            >
-              Quem Somos
-            </a>
-            <div className="relative group">
-              <a
-                href="#produtos"
-                className={`hover:text-gray-400 ${
-                  activeSection === "produtos"
-                    ? "border-b-4 border-red-500"
-                    : ""
-                }`}
-              >
-                Produtos
-              </a>
-       
-              <div className="absolute hidden group-hover:block bg-white shadow-md rounded-md mt-2 p-4">
-                <a
-                  href="/produtos/chapas"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Chapas
-                </a>
-                <a
-                  href="/produtos/perfis"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Perfis
-                </a>
-                <a
-                  href="/produtos/vigas"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Vigas
-                </a>
-                <a
-                  href="/produtos/laminados"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Laminados
-                </a>
-                <a
-                  href="/produtos/bobinas"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Bobinas
-                </a>
-                <a
-                  href="/produtos/telhas"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Telhas
-                </a>
-                <a
-                  href="/produtos/barras"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Barras
-                </a>
-                <a
-                  href="/produtos/blanks"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Blanks
-                </a>
-                <a
-                  href="/produtos/slitter"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Slitter
-                </a>
-                <a
-                  href="/produtos/tubos"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Tubos
-                </a>
-              </div>
-            </div>
-            <a
-              href="#contato"
-              className={`hover:text-gray-400 ${
-                activeSection === "contato" ? "border-b-4 border-red-500" : ""
-              }`}
-            >
-              Contato
-            </a>
-          </nav>
-        </div>
-
-        {/* Menu dropdown em dispositivos móveis */}
-        {isMenuOpen && (
-          <nav className="md:hidden flex flex-col space-y-4 mt-4 px-4">
-            <a
-              href="#home"
-              onClick={toggleMenu} // Fechar menu ao clicar
-              className={`hover:text-gray-400 ${
-                activeSection === "home" ? "" : ""
-              }`}
-            >
-              Home
-            </a>
-            <a
-              href="#quem-somos"
-              onClick={toggleMenu}
-              className={`hover:text-gray-400 ${
-                activeSection === "quem-somos" ? "" : ""
-              }`}
-            >
-              Quem Somos
-            </a>
-            <a
-              href="#servicos"
-              onClick={toggleMenu}
-              className={`hover:text-gray-400 ${
-                activeSection === "servicos" ? "" : ""
-              }`}
-            >
-              Serviços
-            </a>
-            <a
-              href="#materiais"
-              onClick={toggleMenu}
-              className={`hover:text-gray-400 ${
-                activeSection === "materiais" ? "" : ""
-              }`}
-            >
-              Materiais
-            </a>
-            <a
-              href="#contato"
-              onClick={toggleMenu}
-              className={`hover:text-gray-400 ${
-                activeSection === "contato" ? "" : ""
-              }`}
-            >
-              Contato
-            </a>
-          </nav>
-        )}
-      </header>
-
+  
+      <Navbar />
+     
       {/* Seção Home */}
       <motion.section
         id="home"
