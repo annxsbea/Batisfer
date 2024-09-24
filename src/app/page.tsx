@@ -1,31 +1,37 @@
 "use client";
 
-import Head from 'next/head';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import HomeImage from '../assents/Home.png';
-import Logo from '../assents/Logo.png';
-import { motion } from 'framer-motion';
-import Contato from './pages/Contato';
-import Materiais from './pages/Materiais';
-import QuemSomos from './pages/QuemSomos';
-import Servicos from './pages/Servicos';
+import Head from "next/head";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import HomeImage from "../assents/Home.png";
+import Logo from "../assents/Logo.png";
+import { motion } from "framer-motion";
+import Contato from "./pages/Contato";
+import Materiais from "./pages/Materiais";
+import QuemSomos from "./pages/QuemSomos";
+import Servicos from "./pages/Servicos";
 
 // Definindo animações
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Função para monitorar a rolagem e atualizar a seção ativa
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'quem-somos', 'servicos', 'materiais', 'contato'];
-      let currentSection = 'home';
+      const sections = [
+        "home",
+        "quem-somos",
+        "servicos",
+        "materiais",
+        "contato",
+      ];
+      let currentSection = "home";
 
       sections.forEach((section) => {
         const element = document.getElementById(section);
@@ -37,10 +43,10 @@ export default function Home() {
       setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -58,9 +64,14 @@ export default function Home() {
       {/* Navbar fixa */}
       <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center px-4 md:px-0">
-        <Image src={Logo} alt="Logo"  width={250}
-        height={250}
-        className="w-48 h-auto sm:w-52 md:w-48 lg:w-48" priority />
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={250}
+            height={250}
+            className="w-48 h-auto sm:w-52 md:w-48 lg:w-48"
+            priority
+          />
 
           {/* Botão de menu para dispositivos móveis */}
           <button
@@ -75,39 +86,116 @@ export default function Home() {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
             </svg>
           </button>
 
           {/* Menu em dispositivos maiores (desktop) */}
+          {/* Menu em dispositivos maiores (desktop) */}
           <nav className="hidden md:flex space-x-6 text-lg">
             <a
               href="#home"
-              className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "home" ? "border-b-4 border-red-500" : ""
+              }`}
             >
               Home
             </a>
             <a
               href="#quem-somos"
-              className={`hover:text-gray-400 ${activeSection === 'quem-somos' ? 'border-b-1 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "quem-somos"
+                  ? "border-b-1 border-red-500"
+                  : ""
+              }`}
             >
               Quem Somos
             </a>
-            <a
-              href="#servicos"
-              className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}
-            >
-              Serviços
-            </a>
-            <a
-              href="#materiais"
-              className={`hover:text-gray-400 ${activeSection === 'materiais' ? 'border-b-4 border-red-500' : ''}`}
-            >
-              Materiais
-            </a>
+            <div className="relative group">
+              <a
+                href="#produtos"
+                className={`hover:text-gray-400 ${
+                  activeSection === "produtos"
+                    ? "border-b-4 border-red-500"
+                    : ""
+                }`}
+              >
+                Produtos
+              </a>
+       
+              <div className="absolute hidden group-hover:block bg-white shadow-md rounded-md mt-2 p-4">
+                <a
+                  href="/produtos/chapas"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Chapas
+                </a>
+                <a
+                  href="/produtos/perfis"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Perfis
+                </a>
+                <a
+                  href="/produtos/vigas"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Vigas
+                </a>
+                <a
+                  href="/produtos/laminados"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Laminados
+                </a>
+                <a
+                  href="/produtos/bobinas"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Bobinas
+                </a>
+                <a
+                  href="/produtos/telhas"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Telhas
+                </a>
+                <a
+                  href="/produtos/barras"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Barras
+                </a>
+                <a
+                  href="/produtos/blanks"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Blanks
+                </a>
+                <a
+                  href="/produtos/slitter"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Slitter
+                </a>
+                <a
+                  href="/produtos/tubos"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Tubos
+                </a>
+              </div>
+            </div>
             <a
               href="#contato"
-              className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "contato" ? "border-b-4 border-red-500" : ""
+              }`}
             >
               Contato
             </a>
@@ -120,35 +208,45 @@ export default function Home() {
             <a
               href="#home"
               onClick={toggleMenu} // Fechar menu ao clicar
-              className={`hover:text-gray-400 ${activeSection === 'home' ? '' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "home" ? "" : ""
+              }`}
             >
               Home
             </a>
             <a
               href="#quem-somos"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'quem-somos' ? '' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "quem-somos" ? "" : ""
+              }`}
             >
               Quem Somos
             </a>
             <a
               href="#servicos"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'servicos' ? '' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "servicos" ? "" : ""
+              }`}
             >
               Serviços
             </a>
             <a
               href="#materiais"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'materiais' ? '' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "materiais" ? "" : ""
+              }`}
             >
               Materiais
             </a>
             <a
               href="#contato"
               onClick={toggleMenu}
-              className={`hover:text-gray-400 ${activeSection === 'contato' ? '' : ''}`}
+              className={`hover:text-gray-400 ${
+                activeSection === "contato" ? "" : ""
+              }`}
             >
               Contato
             </a>
@@ -164,14 +262,18 @@ export default function Home() {
         animate="visible"
         variants={sectionVariants}
       >
-        <Image src={HomeImage} alt="Home" layout="fill" objectFit="cover" className="opacity-30" />
+        <Image
+          src={HomeImage}
+          alt="Home"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-30"
+        />
       </motion.section>
 
-
-      <QuemSomos/>
-      <Servicos/>
-      <Materiais/>
-      <Contato/>
+      <QuemSomos />
+      <Servicos />
+      <Contato />
 
       <footer className="bg-black text-white py-4 text-center">
         <p>&copy; 2024 Nome da Empresa. Todos os direitos reservados.</p>
