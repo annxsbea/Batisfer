@@ -32,34 +32,34 @@ export default function NavbarProdutos() {
 
             <DropdownMenuContent className="bg-white shadow-md rounded-md">
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/chapas">Chapas</Link>
+                <Link href="/pages/produtos/chapas">Chapas</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/perfis">Perfis</Link>
+                <Link href="/pages/produtos/perfis">Perfis</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/vigas">Vigas</Link>
+                <Link href="/pages/produtos/vigas">Vigas</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/laminados">Laminados</Link>
+                <Link href="/pages/produtos/laminados">Laminados</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/bobinas">Bobinas</Link>
+                <Link href="/pages/produtos/bobinas">Bobinas</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/telhas">Telhas</Link>
+                <Link href="/pages/produtos/telhas">Telhas</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/barras">Barras</Link>
+                <Link href="/pages/produtos/barras">Barras</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/blanks">Blanks</Link>
+                <Link href="/pages/produtos/blanks">Blanks</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/slitter">Slitter</Link>
+                <Link href="/pages/produtos/slitter">Slitter</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="pages/produtos/tubos">Tubos</Link>
+                <Link href="/pages/produtos/tubos">Tubos</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
