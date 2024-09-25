@@ -4,9 +4,9 @@ import Image from "next/image";
 // import { useState, useEffect } from "react";
 import HomeImage from "../assents/Home.png";
 import { motion } from "framer-motion";
-import Contato from "./pages/Contato";
-import QuemSomos from "./pages/QuemSomos";
-import Servicos from "./pages/Servicos";
+import Contato from "./Contato";
+import QuemSomos from "./QuemSomos";
+import Servicos from "./Servicos";
 import Navbar from "./componentes/NavBar/page";
 import Footer from "./componentes/Rodape/page";
 const sectionVariants = {
