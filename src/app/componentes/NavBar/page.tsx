@@ -3,12 +3,17 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "../../../assents/Logo.png";
 import Link from "next/link";
-
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +40,23 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleProductsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Previne o comportamento padrão do link
+    toggleDropdown(); // Alterna o dropdown
+    const section = document.getElementById("produtos");
+    
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY; // Posição da seção
+      window.scrollTo({ top: sectionTop, behavior: "smooth" }); // Rola suavemente para a seção
+    }
+  };
+
+  
 
   return (
     <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
@@ -87,48 +109,56 @@ const Navbar = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <a
-                href="#produtos"
+              <button
+                onClick={handleProductsClick}
                 className={`hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
               >
                 Produtos
-              </a>
+              </button>
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent className="bg-white shadow-md rounded-md">
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/chapas">Chapas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/perfis">Perfis</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/vigas">Vigas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/laminados">Laminados</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/bobinas">Bobinas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/telhas">Telhas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/barras">Barras</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/blanks">Blanks</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/slitter">Slitter</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/tubos">Tubos</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
+            {isDropdownOpen && (
+              <DropdownMenuContent className="bg-white shadow-md rounded-md">
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/chapas">Chapas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/perfis">Perfis</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/vigas">Vigas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/laminados">Laminados</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/bobinas">Bobinas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/telhas">Telhas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/barras">Barras</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/blanks">Blanks</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/slitter">Slitter</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/tubos">Tubos</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            )}
           </DropdownMenu>
 
+          <a 
+            href="#servicos" 
+            className={`hover:text-gray-400 ${activeSection === "servicos" ? "border-b-4 border-red-500" : ""}`}
+          >
+            Serviços
+          </a>
           <a
             href="#contato"
             className={`hover:text-gray-400 ${activeSection === "contato" ? "border-b-4 border-red-500" : ""}`}
@@ -139,7 +169,7 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <nav className="md:hidden flex flex-col space-y-4 mt-4 px-4">
+        <nav className="md:hidden flex flex-col space-y-3 mt-4  ">
           <a
             href="#home"
             onClick={toggleMenu} // Fechar menu ao clicar
@@ -161,13 +191,52 @@ const Navbar = () => {
           >
             Serviços
           </a>
-          <a
-            href="#produtos"
-            onClick={toggleMenu}
-            className={`hover:text-gray-400 ${activeSection === "produtos" ? "" : ""}`}
-          >
-            Produtos
-          </a>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                onClick={handleProductsClick}
+                className={` hover:text-gray-400 ${activeSection === "produtos" ? "" : ""}`}
+              >
+                Produtos
+              </button>
+            </DropdownMenuTrigger>
+
+            {isDropdownOpen && (
+              <DropdownMenuContent className="bg-white shadow-md rounded-md">
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/chapas" onClick={toggleMenu}>Chapas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/perfis" onClick={toggleMenu}>Perfis</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/vigas" onClick={toggleMenu}>Vigas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/laminados" onClick={toggleMenu}>Laminados</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/bobinas" onClick={toggleMenu}>Bobinas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/telhas" onClick={toggleMenu}>Telhas</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/barras" onClick={toggleMenu}>Barras</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/blanks" onClick={toggleMenu}>Blanks</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/slitter" onClick={toggleMenu}>Slitter</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/produtos/tubos" onClick={toggleMenu}>Tubos</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            )}
+          </DropdownMenu>
+
           <a
             href="#contato"
             onClick={toggleMenu}

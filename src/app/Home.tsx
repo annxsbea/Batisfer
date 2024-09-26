@@ -10,7 +10,7 @@ const sectionVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
-export default function Contato() {
+export default function Home() {
     return (
         <div>
          
