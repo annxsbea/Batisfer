@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+// import Image from "next/image";
 import { motion } from "framer-motion"; // Importando o Framer Motion
 
 // Lista de produtos

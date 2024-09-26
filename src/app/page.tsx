@@ -34,7 +34,6 @@ export default function Home() {
           className="opacity-30"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-white text-5xl font-bold">Bem-vindo ao Nosso Site</h1>
         </div>
       </motion.section>
       <QuemSomos />

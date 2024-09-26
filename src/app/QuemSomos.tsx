@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image'; // Importando o componente Image do Next.js
-import imagemSobreNos from '../assents/imagem-sobre-nos.jpg'; // Altere o caminho da imagem conforme necessário
+// import Image from 'next/image'; // Importando o componente Image do Next.js
+// import imagemSobreNos from '../assents/imagem-sobre-nos.jpg'; // Altere o caminho da imagem conforme necessário
 
 // Definindo animações
 const sectionVariants = {
