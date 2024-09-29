@@ -235,17 +235,18 @@ import { motion } from 'framer-motion';
 export default function Contato() {
 
     return (
-        <div className='mt-16'>
+        <div className='mt-56'>
             <motion.section
                 id="contato"
                 className="min-h-screen  flex items-center justify-center"
                 initial="hidden"
                 animate="visible"
             >
-                <div className="container mx-auto ">
+                <div className="container mx-auto text-center px-4 text-black ">
+                <h2 className="text-4xl font-semibold mb-5 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">Contato</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        
+
                         <div className="bg-white p-16 rounded-lg shadow-lg">
                         <h2 className="text-3xl font-semibold mb-8 text-start text-[#6B0808]">Entre em Contato</h2>
 
@@ -267,7 +268,7 @@ export default function Contato() {
                                       
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="">
                                         <div>
                                             <label htmlFor="company" className="block text-left text-black">Empresa</label>
                                             <input
@@ -278,15 +279,7 @@ export default function Contato() {
                                             />
                                         </div>
 
-                                        <div>
-                                            <label htmlFor="cnpj" className="block text-left text-black">CNPJ</label>
-                                            <input
-                                                type="text"
-                                                id="cnpj"
-                                                name="cnpj"
-                                                className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-700"
-                                            />
-                                        </div>
+                                        
                                     </div>
 
                                     <div className="grid grid-cols-2 gap-4">

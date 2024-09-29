@@ -53,7 +53,7 @@ const produtos = [
     id: 6,
     nome: "Bobinas",
     descricao: "Bobinas de aço para diversos usos.",
-    imagem: "/assents/bobinas.jpg",
+    imagem: "/assents/bobinas1.jpg",
     link: "/produtos/bobinas",
   },
   {
@@ -81,45 +81,51 @@ const produtos = [
     id: 10,
     nome: "Chapas",
     descricao: "Chapas de aço de diferentes espessuras.",
-    imagem: "/assents/chapas.jpg",
+    imagem: "/assents/chapas1.jpg",
     link: "/produtos/chapas",
   },
-];
+];  
 
-export function ProdutosCarousel() {
+export function Produtos() {
   return (
     <motion.section
-      initial={{ opacity: 0, y: -20 }} // Animação inicial
-      animate={{ opacity: 1, y: 0 }} // Animação ao entrar
-      exit={{ opacity: 0, y: -20 }} // Animação ao sair
-      transition={{ duration: 0.5 }} // Duração da transição
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }} 
+      transition={{ duration: 0.5 }} 
     >
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl mb-16 text-[#6B0808]">Produtos</h2>
+      <div className="container mx-auto px-4 py-16 mt-[-60px]">
+        <div className="container mx-auto text-center px-4 text-black ">
+          <h2 className="text-4xl font-semibold mb-5 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">
+            Produtos
+          </h2>
         </div>
+
         <Carousel
           opts={{
             align: "start",
           }}
-          className="w-full max-w-5xl mx-auto" // Aumentando a largura máxima do carrossel
+          className="w-full max-w-7xl mx-auto" // Aumentando a largura máxima do carrossel para 7xl
         >
           <CarouselContent>
             {produtos.map((produto) => (
-              <CarouselItem key={produto.id} className="transition-transform duration-300 ease-in-out transform hover:scale-105 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
+              <CarouselItem
+                key={produto.id}
+                className="transition-transform duration-300 ease-in-out transform hover:scale-105 basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+              >
                 <div className="p-1">
-                  <Card className="bg-[#F9F9F9]"> {/* Troque o fundo do Card se desejar */}
+                  <Card className="bg-[#F9F9F9]">
                     <CardContent className="flex flex-col items-center justify-center p-6">
-                      <div className="w-44 h-44 flex items-center justify-center mb-4 bg-slate-500">
-                        {/* <Image
+                    <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 bg-slate-500">
+                    {/* <Image
                           src={produto.imagem}
                           alt={`Imagem do ${produto.nome}`}
-                          width={256}
-                          height={256}
+                          width={288}
+                          height={288}
                           className="w-full h-full object-cover rounded-md"
                         /> */}
                       </div>
-                      <a href={produto.link} className="text-lg font-semibold text-[#000] hover:underline"> {/* Mudança de cor no texto */}
+                      <a href={produto.link} className="text-lg font-semibold text-[#000] hover:underline">
                         {produto.nome}
                       </a>
                       <p className="mt-2 text-gray-700 text-sm">{produto.descricao}</p>

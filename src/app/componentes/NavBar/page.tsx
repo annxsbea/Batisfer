@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { FaWhatsapp } from "react-icons/fa"; // Importando ícone do WhatsApp
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -46,16 +47,19 @@ const Navbar = () => {
   };
 
   const handleProductsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault(); // Previne o comportamento padrão do link
-    toggleDropdown(); // Alterna o dropdown
+    event.preventDefault();
+  
+    // Abre ou fecha o dropdown
+    setIsDropdownOpen(!isDropdownOpen);
+  
+    // Rola suavemente até a seção "Produtos"
     const section = document.getElementById("produtos");
-    
     if (section) {
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY; // Posição da seção
-      window.scrollTo({ top: sectionTop, behavior: "smooth" }); // Rola suavemente para a seção
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
     }
   };
-
+  
   
 
   return (
@@ -93,7 +97,7 @@ const Navbar = () => {
           </svg>
         </button>
 
-        <nav className="hidden md:flex space-x-6 text-lg">
+        <nav className="hidden md:flex space-x-14 text-lg font-bold">
           <a
             href="#home"
             className={`hover:text-gray-400 ${activeSection === "home" ? "border-b-4 border-red-500" : ""}`}
@@ -111,7 +115,8 @@ const Navbar = () => {
             <DropdownMenuTrigger asChild>
               <button
                 onClick={handleProductsClick}
-                className={`hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
+                
+                className={  ` mt-[-16px] hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
               >
                 Produtos
               </button>
@@ -165,6 +170,16 @@ const Navbar = () => {
           >
             Contato
           </a>
+
+          <a
+            href="https://wa.me/5511999999999" // Coloque seu número aqui
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600"
+          >
+            <FaWhatsapp className="w-5 h-5" />
+            <span>Enviar Cotação</span>
+          </a>
         </nav>
       </div>
 
@@ -172,7 +187,7 @@ const Navbar = () => {
         <nav className="md:hidden flex flex-col space-y-3 mt-4  ">
           <a
             href="#home"
-            onClick={toggleMenu} // Fechar menu ao clicar
+            onClick={toggleMenu}
             className={`hover:text-gray-400 ${activeSection === "home" ? "" : ""}`}
           >
             Home
@@ -203,35 +218,36 @@ const Navbar = () => {
 
             {isDropdownOpen && (
               <DropdownMenuContent className="bg-white shadow-md rounded-md">
+               
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/chapas" onClick={toggleMenu}>Chapas</Link>
+                  <Link href="/produtos/chapas">Chapas</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/perfis" onClick={toggleMenu}>Perfis</Link>
+                  <Link href="/produtos/perfis">Perfis</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/vigas" onClick={toggleMenu}>Vigas</Link>
+                  <Link href="/produtos/vigas">Vigas</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/laminados" onClick={toggleMenu}>Laminados</Link>
+                  <Link href="/produtos/laminados">Laminados</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/bobinas" onClick={toggleMenu}>Bobinas</Link>
+                  <Link href="/produtos/bobinas">Bobinas</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/telhas" onClick={toggleMenu}>Telhas</Link>
+                  <Link href="/produtos/telhas">Telhas</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/barras" onClick={toggleMenu}>Barras</Link>
+                  <Link href="/produtos/barras">Barras</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/blanks" onClick={toggleMenu}>Blanks</Link>
+                  <Link href="/produtos/blanks">Blanks</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/slitter" onClick={toggleMenu}>Slitter</Link>
+                  <Link href="/produtos/slitter">Slitter</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/produtos/tubos" onClick={toggleMenu}>Tubos</Link>
+                  <Link href="/produtos/tubos">Tubos</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             )}
@@ -243,6 +259,16 @@ const Navbar = () => {
             className={`hover:text-gray-400 ${activeSection === "contato" ? "" : ""}`}
           >
             Contato
+          </a>
+
+          <a
+            href="https://wa.me/5511999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600"
+          >
+            <FaWhatsapp className="w-5 h-5" />
+            <span>Enviar Cotação</span>
           </a>
         </nav>
       )}

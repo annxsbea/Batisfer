@@ -12,17 +12,17 @@ const sectionVariants = {
 
 export default function QuemSomos() {
     return (
-        <div>
+        <div className="mt-[-200px]">
             <motion.section
                 id="quem-somos"
-                className="min-h-screen  flex items-center justify-center"
+                className="min-h-screen  flex items-center justify-center "
                 initial="hidden"
                 animate="visible"
                 variants={sectionVariants}
             >
                 <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-10 text-black ">
                     <div className="text-center md:text-left mb-4 md:mb-0 md:w-1/2">
-                        <h2 className="text-4xl font-semibold mb-4 text-[#6B0808]">Sobre Nós</h2>
+                        <h2 className="text-5xl font-semibold mt-[-140px] text-[#6B0808]">Sobre Nós</h2>
                         <p className="text-lg text-gray-700">
                             Este é o espaço para apresentar o negócio ou a marca aos visitantes. Conte sobre a equipe, missão e diferenciais.
                         </p>

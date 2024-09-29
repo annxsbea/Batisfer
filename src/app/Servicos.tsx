@@ -36,7 +36,7 @@ const servicos = [
 
 export default function Servicos() {
   return (
-    <div>
+    <div className="mt-[-220px]">
       <motion.section
         id="servicos"
         className="min-h-screen flex items-center justify-center"
