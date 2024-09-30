@@ -42,16 +42,13 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
 
   const handleProductsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-  
+
     // Abre ou fecha o dropdown
     setIsDropdownOpen(!isDropdownOpen);
-  
+
     // Rola suavemente até a seção "Produtos"
     const section = document.getElementById("produtos");
     if (section) {
@@ -59,8 +56,8 @@ const Navbar = () => {
       window.scrollTo({ top: sectionTop, behavior: "smooth" });
     }
   };
-  
-  
+
+
 
   return (
     <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
@@ -110,8 +107,8 @@ const Navbar = () => {
           >
             Quem Somos
           </a>
-          <a 
-            href="#servicos" 
+          <a
+            href="#servicos"
             className={`hover:text-gray-400 ${activeSection === "servicos" ? "border-b-4 border-red-500" : ""}`}
           >
             Serviços
@@ -120,8 +117,8 @@ const Navbar = () => {
             <DropdownMenuTrigger asChild>
               <button
                 onClick={handleProductsClick}
-                
-                className={  ` mt-[-16px] hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
+
+                className={` mt-[-16px] hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
               >
                 Produtos
               </button>
@@ -163,7 +160,7 @@ const Navbar = () => {
             )}
           </DropdownMenu>
 
-       
+
           <a
             href="#contato"
             className={`hover:text-gray-400 ${activeSection === "contato" ? "border-b-4 border-red-500" : ""}`}
@@ -218,7 +215,7 @@ const Navbar = () => {
 
             {isDropdownOpen && (
               <DropdownMenuContent className="bg-white shadow-md rounded-md">
-               
+
                 <DropdownMenuItem asChild>
                   <Link href="/produtos/chapas">Chapas</Link>
                 </DropdownMenuItem>
