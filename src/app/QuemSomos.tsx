@@ -12,31 +12,34 @@ const sectionVariants = {
 
 export default function QuemSomos() {
     return (
-        <div className="mt-[-200px]">
+        <div className="mt-[-100px] sm:mt-[-150px]">
             <motion.section
                 id="quem-somos"
-                className="min-h-screen  flex items-center justify-center "
+                className="min-h-screen flex items-center justify-center px-4 sm:px-10"
                 initial="hidden"
                 animate="visible"
                 variants={sectionVariants}
             >
-                <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-10 text-black ">
-                    <div className="text-center md:text-left mb-4 md:mb-0 md:w-1/2">
-                        <h2 className="text-5xl font-semibold mt-[-140px] text-[#6B0808]">Sobre Nós</h2>
-                        <p className="text-lg text-gray-700">
+                <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+                    {/* Texto da seção */}
+                    <div className="text-center md:text-left mb-6 md:mb-0 md:w-1/2">
+                        <h2 className="text-4xl sm:text-5xl font-semibold mb-4 text-[#6B0808]">Sobre Nós</h2>
+                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                             Este é o espaço para apresentar o negócio ou a marca aos visitantes. Conte sobre a equipe, missão e diferenciais.
                         </p>
                     </div>
-                    <div className="md:w-1/2 flex justify-center bg-slate-500 w-[200px] h-[400px] rounded-lg">
-                        {/* <Image 
-                            src={imagemSobreNos} 
-                            alt="Imagem sobre nós" 
-                            width={400} 
-                            height={400} 
-                            className="object-cover rounded-lg" 
 
-                        /> */}
-
+                    {/* Espaço da imagem */}
+                    <div className="md:w-1/2 flex justify-center">
+                        <div className="w-[300px] h-[200px] sm:w-[300px] sm:h-[200px] lg:w-[500px] lg:h-[300px] bg-slate-500 rounded-lg">
+                            {/* <Image 
+                                src={imagemSobreNos} 
+                                alt="Imagem sobre nós" 
+                                width={400} 
+                                height={400} 
+                                className="w-full h-full object-cover rounded-lg" 
+                            /> */}
+                        </div>
                     </div>
                 </div>
             </motion.section>

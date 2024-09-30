@@ -110,7 +110,12 @@ const Navbar = () => {
           >
             Quem Somos
           </a>
-
+          <a 
+            href="#servicos" 
+            className={`hover:text-gray-400 ${activeSection === "servicos" ? "border-b-4 border-red-500" : ""}`}
+          >
+            Serviços
+          </a>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
@@ -158,12 +163,7 @@ const Navbar = () => {
             )}
           </DropdownMenu>
 
-          <a 
-            href="#servicos" 
-            className={`hover:text-gray-400 ${activeSection === "servicos" ? "border-b-4 border-red-500" : ""}`}
-          >
-            Serviços
-          </a>
+       
           <a
             href="#contato"
             className={`hover:text-gray-400 ${activeSection === "contato" ? "border-b-4 border-red-500" : ""}`}
@@ -175,7 +175,7 @@ const Navbar = () => {
             href="https://wa.me/5511999999999" // Coloque seu número aqui
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600"
+            className="flex items-center space-x-2 px-4 py-2 bg-black text-white rounded-full hover:bg-green-600"
           >
             <FaWhatsapp className="w-5 h-5" />
             <span>Enviar Cotação</span>
