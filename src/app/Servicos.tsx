@@ -36,7 +36,7 @@ const servicos = [
 
 export default function Servicos() {
   return (
-    <div className="mt-[-150px] lg:mt-[-220px]">
+    <div className="mt-[-150px] lg:mt-[-200px]">
       <motion.section
         id="servicos"
         className="min-h-screen flex items-center justify-center px-4"
@@ -44,7 +44,7 @@ export default function Servicos() {
         animate="visible"
         variants={sectionVariants}
       >
-        <div className="container mx-auto text-center text-black mt-12" >
+        <div className="container mx-auto text-center text-black " >
           <h2 className="text-3xl sm:text-4xl font-semibold mb-12 sm:mb-16 lg:mb-8 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">
             Serviços
           </h2>

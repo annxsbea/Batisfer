@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import HomeImage from "../assents/banner.jpg";
+import HomeImage from "../assents/Designer.jpeg";
 import { motion } from "framer-motion";
 import Contato from "./Contato";
 import QuemSomos from "./QuemSomos";
@@ -21,7 +21,7 @@ export default function Home() {
       <Navbar />
       <motion.section
         id="home"
-        className="h-[80vh] bg-black flex items-center justify-center relative "
+        className="h-[70vh] bg-black flex items-center justify-center relative "
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -31,7 +31,7 @@ export default function Home() {
           alt="Home"
           layout="fill"
           objectFit="cover"
-          className=""
+          className=" opacity-30"
         />
         <div className="absolute inset-0 flex items-center justify-center ">
         </div>

@@ -82,7 +82,7 @@ export default function Contato() {
   };
 
   return (
-    <div className='mt-56'>
+    <div className=''>
       <motion.section
         id="contato"
         className="min-h-screen flex items-center justify-center"
@@ -94,8 +94,8 @@ export default function Contato() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <div className="bg-white p-16 rounded-lg shadow-lg">
-              <h2 className="text-3xl font-semibold mb-8 text-start text-[#6B0808]">Entre em Contato</h2>
+            <div className="bg-white p-1 rounded-lg shadow-lg lg:p-16">
+              <h2 className="text-3xl text-center  font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
 
               <div className="p-6 rounded-lg shadow-lg">
                 <form encType="multipart/form-data" className="space-y-4" onSubmit={handleSubmit}>
@@ -175,7 +175,7 @@ export default function Contato() {
                     />
                   </div>
 
-                  {statusMessage && <p className="text-red-500">{statusMessage}</p>}
+                  {statusMessage && <p className="text-gray-500">{statusMessage}</p>}
 
                   <div className="flex justify-end">
                     <button type="submit" className="bg-[#460413] text-white py-2 px-4 hover:bg-red-900">
