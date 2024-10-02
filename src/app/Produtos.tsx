@@ -9,10 +9,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-// import Image from "next/image";
-import { motion } from "framer-motion"; // Importando o Framer Motion
+import { motion } from "framer-motion"; 
 
-// Lista de produtos
 const produtos = [
   {
     id: 1,
@@ -105,7 +103,7 @@ export function Produtos() {
           opts={{
             align: "start",
           }}
-          className="w-full max-w-7xl mx-auto" // Aumentando a largura máxima do carrossel para 7xl
+          className="w-full max-w-7xl mx-auto" 
         >
           <CarouselContent>
             {produtos.map((produto) => (

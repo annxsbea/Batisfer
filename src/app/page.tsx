@@ -42,7 +42,7 @@ export default function Home() {
       <Contato />
 
       <a
-        href="https://api.whatsapp.com/send?phone=5511980976575" // Substitua pelo seu número do WhatsApp
+        href="https://api.whatsapp.com/send?phone=5511980976575" 
         className="fixed bottom-10 right-6"
         target="_blank"
         rel="noopener noreferrer"

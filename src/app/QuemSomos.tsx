@@ -21,7 +21,6 @@ export default function QuemSomos() {
                 variants={sectionVariants}
             >
                 <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-                    {/* Texto da seção */}
                     <div className="text-center md:text-left mb-6 md:mb-0 md:w-1/2">
                         <h2 className="text-4xl sm:text-5xl font-semibold mb-4 text-[#6B0808]">Sobre Nós</h2>
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
@@ -29,7 +28,6 @@ export default function QuemSomos() {
                         </p>
                     </div>
 
-                    {/* Espaço da imagem */}
                     <div className="md:w-1/2 flex justify-center">
                         <div className="w-[300px] h-[200px] sm:w-[300px] sm:h-[200px] lg:w-[500px] lg:h-[300px] bg-slate-500 rounded-lg">
                             {/* <Image 
