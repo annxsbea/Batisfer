@@ -1,8 +1,9 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
-    "no-unused-vars": "off",  // Desativa a regra de variáveis não utilizadas
-    "@typescript-eslint/no-explicit-any": "off",  // Permite o uso de 'any'
-    "react/react-in-jsx-scope": "off"  // Não é necessário importar React no escopo (para Next.js)
+    "no-unused-vars": "off",  
+    "@typescript-eslint/no-unused-vars": "off",   // Adicionei essa linha para desativar o warning
+    "@typescript-eslint/no-explicit-any": "off", 
+    "react/react-in-jsx-scope": "off" 
   }
 }
