@@ -2,7 +2,7 @@
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
     "no-unused-vars": "off",  
-    "@typescript-eslint/no-unused-vars": "off",   // Adicionei essa linha para desativar o warning
+    "@typescript-eslint/no-unused-vars": "off",   
     "@typescript-eslint/no-explicit-any": "off", 
     "react/react-in-jsx-scope": "off" 
   }

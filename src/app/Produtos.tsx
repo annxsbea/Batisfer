@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Tubos from "../assents/ProdutosHome/tubos.jpg";
 import Slitter from "../assents/ProdutosHome/slitter.jpg";
-import Blanks from "../assents/ProdutosHome/blanks.jpg";
+import Blanks from "../assents/ProdutosHome/blanks.png";
 import Barras from "../assents/ProdutosHome/barraslaminadas.jpg";
 import Telhas from "../assents/ProdutosHome/telhas.jpg";
 import Chapas from "../assents/ProdutosHome/chapas.jpg";
@@ -41,7 +41,7 @@ const produtos = [
     id: 3,
     nome: "Blanks",
     descricao: "Peças cortadas de acordo com as especificações.",
-    imagem: "/assents/blanks.jpg",
+    imagem: Blanks,
     link: "/produtos/blanks",
   },
   {
@@ -55,7 +55,7 @@ const produtos = [
     id: 5,
     nome: "Telhas",
     descricao: "Telhas de aço e outros materiais.",
-    imagem: "/assents/telhas.jpg",
+    imagem: Telhas,
     link: "/produtos/telhas",
   },
   {
@@ -94,7 +94,6 @@ const produtos = [
     link: "/produtos/chapas",
   },
 ];  
-
 export function Produtos() {
   return (
     <motion.section
@@ -125,8 +124,8 @@ export function Produtos() {
                 <div className="p-1">
                   <Card className="bg-[#F9F9F9]">
                     <CardContent className="flex flex-col items-center justify-center p-6">
-                    <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 bg-slate-500">
-                    <Image
+                      <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 bg-slate-500">
+                        <Image
                           src={produto.imagem}
                           alt={`Imagem do ${produto.nome}`}
                           width={288}
@@ -144,8 +143,10 @@ export function Produtos() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="text-black" />
-          <CarouselNext className="text-black" />
+
+         
+          <CarouselPrevious className="absolute top-1/2 transform -translate-y-1/2 text-5xl w-12 h-12 p-2 bg-white rounded-full shadow-md cursor-pointer z-10 text-black hover:bg-[#6B0808] hover:text-white" />
+          <CarouselNext className="absolute  top-1/2 transform -translate-y-1/2 text-5xl p-2 w-12 h-12 bg-white rounded-full shadow-md cursor-pointer z-10 text-black hover:bg-[#6B0808] hover:text-white" />
         </Carousel>
       </div>
     </motion.section>

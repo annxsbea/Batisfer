@@ -28,7 +28,7 @@ export default function Contato() {
     const { name, value } = e.target;
     setFormValues(prevValues => ({
       ...prevValues,
-      [name]: value // Atualiza o campo específico
+      [name]: value 
     }));
   };
 
@@ -37,7 +37,7 @@ export default function Contato() {
     if (files) {
       setFormValues(prevValues => ({
         ...prevValues,
-        [name]: files[0] // Armazena o arquivo selecionado
+        [name]: files[0] 
       }));
     }
   };
@@ -176,7 +176,7 @@ export default function Contato() {
                   {statusMessage && <p className="text-gray-500">{statusMessage}</p>}
 
                   <div className="flex justify-end">
-                    <button type="submit" className="bg-[#460413] text-white py-2 px-4 hover:bg-red-900">
+                    <button type="submit" className="bg-[#460413] text-white py-2 px-4 hover:bg-red-900  cursor-pointer">
                       Enviar
                     </button>
                   </div>

@@ -17,7 +17,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navbarHeight = 135; 
+  const navbarHeight = 100; 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +69,6 @@ const Navbar = () => {
           <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
         </ScrollLink>
 
-        {/* Botão para o menu mobile */}
         <button
           className="mr-10 lg:hidden text-gray-700 focus:outline-none"
           onClick={toggleMenu}
@@ -80,15 +79,14 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Menu desktop */}
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400   cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </ScrollLink>
-          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400 ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400  cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
-          <ScrollLink to="servicos" smooth={true} duration={500}  offset={-navbarHeight}  className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500}  offset={-navbarHeight}  className={`hover:text-gray-400  cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 
@@ -139,7 +137,7 @@ const Navbar = () => {
             )}
           </DropdownMenu>
 
-          <ScrollLink to="contato" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="contato" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
             Contato
           </ScrollLink>
 
