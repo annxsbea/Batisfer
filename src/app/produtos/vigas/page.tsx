@@ -2,21 +2,31 @@
 import Navbar2 from "@/app/componentes/NavBar2/page";
 import Footer from "@/app/componentes/Rodape/page";
 import Image from "next/image";
-
+import Perfili from "../../../assents/FotosProdutos/Vigas/perfili.jpg";
 const produtosVigas = [
   {
     id: 1,
-    nome: "Viga de Aço 1",
-    descricao: "Viga de aço de alta resistência, ideal para estruturas de grande porte.",
-    imagem: "/imagens/viga1.jpg",
+    nome: "Perfil I",
+    descricao: "Tabela de peso",
+    imagem: Perfili,
   },
+
   {
     id: 2,
-    nome: "Viga de Aço 2",
-    descricao: "Viga de aço leve, perfeita para aplicações de engenharia civil.",
-    imagem: "/imagens/viga2.jpg",
+    nome: "Viga U",
+    descricao: "Tabela de peso",
+    imagem: "/imagens/vigau.jpg",
   },
+
+{
+    id: 3,
+    nome: "Viga W",
+    descricao: "Tabela de peso",
+    imagem: "/imagens/vigaw.jpg",
+  },
+
 ];
+
 
 export default function Vigas() {
   return (

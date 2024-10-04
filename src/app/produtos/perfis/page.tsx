@@ -3,20 +3,32 @@ import Navbar2 from "@/app/componentes/NavBar2/page";
 import Footer from "@/app/componentes/Rodape/page";
 import Image from "next/image";
 
+import Perfillu from "@/assents/FotosProdutos/Perfis/perfilu.jpg";
 const produtosPerfis = [
   {
     id: 1,
-    nome: "Perfil de Aço 1",
-    descricao: "Perfil de aço resistente e durável, ideal para construção civil.",
-    imagem: "/imagens/perfil1.jpg",
+    nome: "Perfil U ”Lu”",
+    descricao: "Tabela de peso",
+    imagem: Perfillu,
   },
+
   {
     id: 2,
-    nome: "Perfil de Aço 2",
-    descricao: "Perfil de aço leve, perfeito para estruturas metálicas.",
-    imagem: "/imagens/perfil2.jpg",
+    nome: "Perfil U Enrijecido",
+    descricao: "Tabela de peso",
+    imagem: "/",
   },
+
+  {
+    id: 3,
+    nome: "Perfil Dobrado Especial",
+    descricao: "Tabela de peso",
+    imagem: "/",
+  },
+
 ];
+
+
 
 export default function Perfis() {
   return (

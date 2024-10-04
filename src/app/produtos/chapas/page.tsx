@@ -3,21 +3,58 @@ import Navbar2 from "@/app/componentes/NavBar2/page";
 import Footer from "@/app/componentes/Rodape/page";
 import { div } from "framer-motion/client";
 import Image from "next/image";
+import chapafinaquente from "@/assents/FotosProdutos/Chapas/chapafinaquente.jpg";
+// import chapafinafrio from "@/assents/FotosProdutos/Chapas/chapafinafrio.jpg";
+import chapagalvanizada from "@/assents/FotosProdutos/Chapas/chapagalvanizada.jpg";
+import chapagrossa from "@/assents/FotosProdutos/Chapas/chapagrossa.jpg";
+import chapaxadrez from "@/assents/FotosProdutos/Chapas/chapaxadrez.jpg";
+// import chapaoxicortada from "@/assents/FotosProdutos/Chapas/chapaoxicortada.jpg";
 
 const produtosChapas = [
   {
     id: 1,
-    nome: "Chapa de Aço 1",
-    descricao: "Aço galvanizado, com resistência à corrosão e alta durabilidade.",
-    imagem: "/imagens/chapa1.jpg",
+    nome: "Chapa Fina a Quente",
+    descricao: "Tabela de peso",
+    imagem: chapafinaquente,
   },
+
   {
     id: 2,
-    nome: "Chapa de Aço 2",
-    descricao: "Chapa de aço inoxidável, ideal para aplicações industriais.",
-    imagem: "/imagens/chapa2.jpg",
+    nome: "Chapa Fina a Frio",
+    descricao: "Tabela de peso",
+    imagem: '/',
   },
+
+{
+    id: 3,
+    nome: "Chapa Galvanizada",
+    descricao: "Tabela de peso",
+    imagem: chapagalvanizada,
+  },
+
+  {
+    id: 4,
+    nome: "Chapa Grossa",
+    descricao: "Tabela de peso",
+    imagem: chapagrossa,
+  },
+
+{
+    id: 5,
+    nome: "Chapa Xadrez",
+    descricao: "Tabela de peso",
+    imagem: chapaxadrez,
+  },
+
+  {
+    id: 6,
+    nome: "Chapa Oxicortada",
+    descricao: "Tabela de peso",
+    imagem: '/',
+  },
+
 ];
+
 
 export default function ChapasPage() {
   return (
@@ -28,7 +65,7 @@ export default function ChapasPage() {
       <main className="flex-grow">
         <div className="container mx-auto py-12 mt-32 max-w-screen-lg">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-4 text-[#6B0808]">Nossas Chapas de Aço</h1>
+            <h1 className="text-4xl font-bold mb-4 text-[#6B0808]">Chapas de Aço</h1>
             <p className="text-lg text-gray-700">
               Confira nossa seleção de chapas de aço de alta qualidade. Escolha a que melhor atende às suas necessidades.
             </p>

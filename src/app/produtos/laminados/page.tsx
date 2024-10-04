@@ -3,20 +3,51 @@ import Navbar2 from "@/app/componentes/NavBar2/page";
 import Footer from "@/app/componentes/Rodape/page";
 import Image from "next/image";
 
+import Cantoneira from "@/assents/FotosProdutos/Laminados/cantoneira.jpg";
+import FerroChato from "@/assents/FotosProdutos/Laminados/ferrochato.jpg";
+import BarraRedonda from "@/assents/FotosProdutos/Laminados/barraredonda.jpg";
+import BarraQuadrada from "@/assents/FotosProdutos/Laminados/barraquadrada.jpg";
+import perfilte from "@/assents/FotosProdutos/Laminados/perfilt.jpg";
 const produtosLaminados = [
   {
-    id: 1,
-    nome: "Laminado 1",
-    descricao: "Laminado de alta qualidade, ideal para diversas aplicações.",
-    imagem: "/imagens/laminado1.jpg",
-  },
+      id: 1,
+      nome: "Cantoneira",
+      descricao: "Tabela de peso",
+      imagem:Cantoneira,
+    },
+  
   {
-    id: 2,
-    nome: "Laminado 2",
-    descricao: "Laminado versátil, disponível em várias espessuras.",
-    imagem: "/imagens/laminado2.jpg",
-  },
-];
+      id: 2,
+      nome: "Ferro Chato",
+      descricao: "Tabela de peso",
+      imagem: FerroChato,
+    },
+  
+   {
+      id: 3,
+      nome: "Barra Redonda",
+      descricao: "Tabela de peso",
+      imagem:BarraRedonda,
+    },
+  
+    {
+      id: 3,
+      nome: "Barra Quadrada",
+      descricao: "Tabela de peso",
+      imagem: BarraQuadrada,
+    },
+  
+  {
+      id: 4,
+      nome: "Perfil T",
+      descricao: "Tabela de peso",
+      imagem: perfilte,
+    },
+  
+  ];
+  
+  
+  
 
 export default function Laminados() {
   return (
