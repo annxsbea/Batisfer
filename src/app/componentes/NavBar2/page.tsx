@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../../assents/Logo.png'; 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"; // Importando os componentes do Shadcn
+import Text from '@/assents/Text.png'
 
 export default function NavbarProdutos() {
   return (
@@ -10,13 +11,11 @@ export default function NavbarProdutos() {
       <div className="container mx-auto flex justify-between items-center px-4 md:px-0">
         <div>
           <Link href="/">
-            <Image
-              src={Logo} 
-              alt="Logo"
-              width={150}
-              height={50}
-              className="cursor-pointer" 
-            />
+   
+          <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
+          <Image src={Text} alt="Text" width={250} height={250} className="w-32 h-auto" priority />
+ 
+
           </Link>
         </div>
 

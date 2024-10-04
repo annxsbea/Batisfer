@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import Image from 'next/image';
 import Logo from '../../../assents/Logo.png';
+import Text from '@/assents/Text.png'
 import Link from "next/link";
 import { FaAngleDown, FaAngleUp, FaWhatsapp } from 'react-icons/fa';
 import {
@@ -67,6 +68,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <ScrollLink to="home" smooth={true} duration={500}>
           <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
+          <Image src={Text} alt="Text" width={250} height={250} className="w-32 h-auto" priority />
         </ScrollLink>
 
         <button
