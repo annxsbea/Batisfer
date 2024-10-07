@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 // import Image from 'next/image'; // Importando o componente Image do Next.js
-import imagemSobreNos from '../assents/Logo1.png'; // Altere o caminho da imagem conforme necessário
+import imagemSobreNos from '../assents/logo1.png'; // Altere o caminho da imagem conforme necessário
 
 // Definindo animações
 const sectionVariants = {
