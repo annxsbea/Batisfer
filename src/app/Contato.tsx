@@ -216,7 +216,7 @@ export default function Contato() {
                     rel="noopener noreferrer"
                     className="underline text-lg "
                   >
-                    Rua Almirante Alexandrino 440- Vila Invernada -CEP: 03350-010 - São Paulo - SP
+                    Rua Almirante Alexandrino, 440 - CEP: 03350-010 - São Paulo - SP
                   </a>
 
                 </p>

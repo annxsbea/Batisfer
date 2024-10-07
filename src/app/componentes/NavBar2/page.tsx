@@ -1,69 +1,84 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../../assents/Logo.png'; 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"; // Importando os componentes do Shadcn
-import Text from '@/assents/Text.png'
+import Text from '@/assents/Text.png';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"; 
+import { FaWhatsapp } from 'react-icons/fa';
 
-export default function NavbarProdutos() {
+const NavbarProdutos = () => {
+  const [activeSection, setActiveSection] = useState('home');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleProductsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Impede o comportamento padrão do botão
+    setIsDropdownOpen((prev) => !prev); // Alterna o estado do dropdown
+  };
+
   return (
     <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center px-4 md:px-0">
+      <div className="container mx-auto flex justify-between items-center px-4">
         <div>
           <Link href="/">
-   
-          <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
-          <Image src={Text} alt="Text" width={250} height={250} className="w-32 h-auto" priority />
- 
-
+            <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
+            <Image src={Text} alt="Text" width={250} height={250} className="w-32 h-auto" priority />
           </Link>
         </div>
 
-        <nav className="flex space-x-6 text-lg">
-          <Link href="/">Home</Link>
+        <nav className="hidden lg:flex space-x-10 text-lg font-bold">
+          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
+            Home
+          </Link>
+          <Link href="/quem-somos" className={`hover:text-gray-400 ${activeSection === 'empresa' ? 'border-b-4 border-red-500' : ''}`}>
+            Quem Somos
+          </Link>
+          <Link href="/servicos" className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+            Serviços
+          </Link>
 
-          <DropdownMenu>
+          <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
             <DropdownMenuTrigger asChild>
-              <Link href="/" className="hover:text-gray-400">
+              <button
+                onClick={handleProductsClick}
+                className={`hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
+              >
                 Produtos
-              </Link>
+              </button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent className="bg-white shadow-md rounded-md">
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/chapas">Chapas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/perfis">Perfis</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/vigas">Vigas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/laminados">Laminados</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/bobinas">Bobinas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/telhas">Telhas</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/barras">Barras</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/blanks">Blanks</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/slitter">Slitter</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/produtos/tubos">Tubos</Link>
-              </DropdownMenuItem>
+              {[
+                "chapas",
+                "blanks",
+                "perfis",
+                "vigas",
+                "laminados",
+                "tubos",
+                "telhas",
+                "bobinas",                 
+                "slitter",
+              ].map((produto) => (
+                <DropdownMenuItem asChild key={produto}>
+                  <Link href={`/produtos/${produto}`}>
+                    {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <Link href="/contato" className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+            Contato
+          </Link>
+          <Link href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white">
+            <FaWhatsapp className="w-5 h-5" />
+            <span>Enviar Cotação</span>
+          </Link>
         </nav>
       </div>
     </header>
   );
-}
+};
+
+export default NavbarProdutos;

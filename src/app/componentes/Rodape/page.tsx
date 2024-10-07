@@ -6,7 +6,7 @@ import Logo from "../../../assents/Logo.png";
 import { MdOutlineMail } from "react-icons/md";
 import { PiHouseBold } from "react-icons/pi";
 import { BsTelephone } from "react-icons/bs";
-import FullLogo_Transparent from "../../../assents/FullLogo_Transparent.png";
+import logo1 from "../../../assents/logo1.png";
 const Footer = () => {
   return (
     <footer className="text-[#201E1E] font-semibold w-full  bg-gray-100">
@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="flex flex-col justify-center items-center lg:items-start">
           <Link href="/">
             <Image
-              src={FullLogo_Transparent}
+              src={logo1}
               alt="Logo"
               width={350}
               height={350}
@@ -55,16 +55,9 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="underline text-lg "
               >
-                Rua Almirante Alexandrino 440-   
+                Rua Almirante Alexandrino, 440   
               </a>
-              <a
-                href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-lg "
-              >
-                 Vila Invernada
-              </a>
+          
             </p>
           </div>
           <a

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 // import Image from 'next/image'; // Importando o componente Image do Next.js
-import imagemSobreNos from '../assents/Logo.gif'; // Altere o caminho da imagem conforme necessário
+import imagemSobreNos from '../assents/Logo1.png'; // Altere o caminho da imagem conforme necessário
 
 // Definindo animações
 const sectionVariants = {
@@ -29,8 +29,8 @@ export default function QuemSomos() {
                         </p>
                     </div>
 
-                    <div className="md:w-1/2 flex justify-center">
-                        <div className="w-[300px] h-[300px] sm:w-[300px] sm:h-[300px] lg:w-[500px] lg:h-[400px] bg-slate-500 rounded-lg">
+                    <div className="w-full md:w-3/4 flex justify-center">
+                        <div className="w-[300px] h-[300px] sm:w-[300px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[500px] lg:h-[400px]  rounded-lg">
                             <Image 
                                 src={imagemSobreNos} 
                                 alt="Imagem sobre nós" 

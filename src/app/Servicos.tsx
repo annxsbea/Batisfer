@@ -34,7 +34,7 @@ const servicos = [
     nome: "Furação",
     descricao: "- Metaleira T90.",
     descricao2: "- Furos redondos ou oblongos.",
-    descricao3: "- Cortes de cantoneiras, ferro chato  e redondos laminador até 3/4”. ",
+    descricao3: "- Cortes de cantoneiras, ferro chato  e redondos laminados até 3/4”. ",
  
     imagem: Furacao,
   },
@@ -42,7 +42,7 @@ const servicos = [
 
 export default function Servicos() {
   return (
-    <div className="mt-[-30px] lg:mt-[-170px]">
+    <div className="mt-[50px] lg:mt-[-170px]">
       <motion.section
         id="servicos"
         className="min-h-screen flex items-center justify-center px-4"

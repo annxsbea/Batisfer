@@ -18,7 +18,8 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navbarHeight = 78; 
+  const navbarHeight = 78;
+  const navbarHeightMobile = 180;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +54,7 @@ const Navbar = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: sectionTop - 120, behavior: "smooth" }); 
+      window.scrollTo({ top: sectionTop - 120, behavior: "smooth" });
     }
   };
 
@@ -82,13 +83,13 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400   cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400   cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </ScrollLink>
-          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400  cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
-          <ScrollLink to="servicos" smooth={true} duration={500}  offset={-navbarHeight}  className={`hover:text-gray-400  cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 
@@ -105,38 +106,27 @@ const Navbar = () => {
             {isDropdownOpen && (
               <DropdownMenuContent className="bg-white shadow-md rounded-md">
                 {/* Lista de produtos */}
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/chapas">Chapas</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/perfis">Perfis</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/vigas">Vigas</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/laminados">Laminados</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/bobinas">Bobinas</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/telhas">Telhas</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/barras">Barras</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/blanks">Blanks</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/slitter">Slitter</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/produtos/tubos">Tubos</Link>
-                </DropdownMenuItem>
+                {[
+                  "chapas",
+                  "blanks",
+                  "perfis",
+                  "vigas",
+                  "laminados",
+                  "tubos",
+                  "telhas",
+                  "bobinas",                 
+                  "slitter",
+                  
+                ].map((produto) => (
+                  <DropdownMenuItem asChild key={produto}>
+                    <Link href={`/produtos/${produto}`}>
+                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             )}
+
           </DropdownMenu>
 
           <ScrollLink to="contato" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
@@ -172,52 +162,44 @@ const Navbar = () => {
               <ScrollLink to="quem-somos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Empresa
               </ScrollLink>
-              <ScrollLink to="servicos" smooth={true} duration={500} onClick={toggleMenu}  offset={-navbarHeight} className="hover:text-gray-400">
+              <ScrollLink to="servicos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeightMobile} className="hover:text-gray-400">
                 Serviços
               </ScrollLink>
 
-              {/* Produtos com toggle */}
-              <div className="flex justify-between items-center">
-                <button onClick={toggleProducts} className="hover:text-gray-400 focus:outline-none flex items-center">
-                  Produtos {isProductsOpen ? <FaAngleUp /> : <FaAngleDown />}
-                </button>
-              </div>
+              <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                onClick={handleProductsClick}
+                className={`mr-52 hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
+              >
+                Produtos
+              </button>
+            </DropdownMenuTrigger>
 
-              {isProductsOpen && (
-                <div className="flex flex-col pl-4 space-y-2">
-                  <ScrollLink to="chapas" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Chapas
-                  </ScrollLink>
-                  <ScrollLink to="perfis" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Perfis
-                  </ScrollLink>
-                  <ScrollLink to="vigas" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Vigas
-                  </ScrollLink>
-                  <ScrollLink to="laminados" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Laminados
-                  </ScrollLink>
-                  <ScrollLink to="bobinas" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Bobinas
-                  </ScrollLink>
-                  <ScrollLink to="telhas" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Telhas
-                  </ScrollLink>
-                  <ScrollLink to="barras" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Barras
-                  </ScrollLink>
-                  <ScrollLink to="blanks" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Blanks
-                  </ScrollLink>
-                  <ScrollLink to="slitter" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Slitter
-                  </ScrollLink>
-                  <ScrollLink to="tubos" smooth={true} duration={500} className="hover:text-gray-400" onClick={toggleMenu}>
-                    Tubos
-                  </ScrollLink>
-                </div>
-              )}
+            {isDropdownOpen && (
+              <DropdownMenuContent className="bg-white shadow-md rounded-md">
+                {/* Lista de produtos */}
+                {[
+                   "chapas",
+                   "blanks",
+                   "perfis",
+                   "vigas",
+                   "laminados",
+                   "tubos",
+                   "telhas",
+                   "bobinas",                 
+                   "slitter",
+                ].map((produto) => (
+                  <DropdownMenuItem asChild key={produto}>
+                    <Link href={`/produtos/${produto}`}>
+                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            )}
 
+          </DropdownMenu>
               <ScrollLink to="contato" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Contato
               </ScrollLink>
