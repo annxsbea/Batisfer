@@ -178,7 +178,7 @@ export default function Contato() {
                   </div>
 
                   <div>
-                    <label htmlFor="attachment" className="block text-left text-black">Selecionar arquivo</label>
+                    <label htmlFor="attachment" className="block text-left text-black">Escolher arquivo</label>
                     <input
                       type="file"
                       id="attachment"
