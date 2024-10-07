@@ -30,6 +30,7 @@ import tubosredondos from "@/assents/FotosProdutos/Tubos/tubosredondos.jpg";
 import tubosretangulares from "@/assents/FotosProdutos/Tubos/tubosretangulares.jpg";
 import vigau from "@/assents/FotosProdutos/Vigas/vigau.jpg";
 import vigah from "@/assents/FotosProdutos/Vigas/vigaw.jpg";
+import chapafinafrio from "@/assents/FotosProdutos/Chapas/chapafinafrio.jpg";
 interface Produto {
     id: number;
     nome: string;
@@ -51,12 +52,19 @@ const produtos: ProdutosCategoria = {
         },
         {
             id: 2,
+            nome: "Chapa Fina a Frio",
+            descricao: "Tabela de peso",
+            imagem: chapafinafrio,
+          },
+        
+        {
+            id: 3,
             nome: "Chapa Galvanizada",
             descricao: "",
             imagem: chapagalvanizada,
         },
         {
-            id: 3,
+            id: 4,
             nome: "Chapa Grossa",
             descricao: "",
             imagem: chapagrossa,
