@@ -47,7 +47,7 @@ const Footer = () => {
         <div className="flex text-[#1a1919de] flex-col items-start text-left md:w-1/4">
           <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Endereço</h3>
           <div className="flex items-center">
-            <PiHouseBold className="mr-2 mt-[-25px]" size={32} />
+            <PiHouseBold className="mr-2  hover:text-[#6B0808]" size={32} />
             <p className="flex flex-col">
               <a
                 href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"

@@ -30,7 +30,7 @@ export default function QuemSomos() {
                     </div>
 
                     <div className="w-full md:w-3/4 flex justify-center">
-                        <div className="w-[300px] h-[300px] sm:w-[300px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[500px] lg:h-[400px]  rounded-lg">
+                        <div className="w-[300px] h-[300px] sm:w-[300px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[390px] lg:h-[340px]  rounded-lg">
                             <Image 
                                 src={imagemSobreNos} 
                                 alt="Imagem sobre nós" 
