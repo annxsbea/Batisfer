@@ -53,7 +53,7 @@ const produtos: ProdutosCategoria = {
         {
             id: 2,
             nome: "Chapa Fina a Frio",
-            descricao: "Tabela de peso",
+            descricao: "",
             imagem: chapafinafrio,
           },
         

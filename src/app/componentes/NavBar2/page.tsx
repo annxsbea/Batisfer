@@ -49,10 +49,10 @@ const NavbarProdutos = () => {
           <Link href="/" className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </Link>
-          <Link href="/quem-somos" className={`hover:text-gray-400 ${activeSection === 'empresa' ? 'border-b-4 border-red-500' : ''}`}>
+          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'empresa' ? 'border-b-4 border-red-500' : ''}`}>
             Quem Somos
           </Link>
-          <Link href="/servicos" className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </Link>
 
@@ -89,7 +89,7 @@ const NavbarProdutos = () => {
             )}
           </DropdownMenu>
 
-          <Link href="/contato" className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
             Contato
           </Link>
           <Link href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white">
