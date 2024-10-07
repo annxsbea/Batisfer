@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navbarHeight = 100; 
+  const navbarHeight = 78; 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,10 +65,10 @@ const Navbar = () => {
 
   return (
     <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        <ScrollLink to="home" smooth={true} duration={500}>
-          <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
-          <Image src={Text} alt="Text" width={250} height={250} className="w-32 h-auto" priority />
+      <div className="container mx-auto flex justify-between items-center px-4 ">
+        <ScrollLink to="home" smooth={true} duration={500} className='mt-[-25px]'>
+          <Image src={Logo} alt="Logo" width={250} height={250} className="w-40 h-auto" priority />
+          <Image src={Text} alt="Text" width={150} height={250} className=" h-auto" priority />
         </ScrollLink>
 
         <button

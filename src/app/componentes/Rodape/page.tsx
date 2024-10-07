@@ -9,7 +9,7 @@ import { BsTelephone } from "react-icons/bs";
 import FullLogo_Transparent from "../../../assents/FullLogo_Transparent.png";
 const Footer = () => {
   return (
-    <footer className="text-[#201E1E] font-semibold w-full mt-10 bg-gray-100">
+    <footer className="text-[#201E1E] font-semibold w-full  bg-gray-100">
       <div className="flex flex-col md:flex-row justify-between items-start bg-gray-200 py-8 px-4 space-y-8 md:space-y-0">
         
         {/* Logo */}
@@ -47,19 +47,31 @@ const Footer = () => {
         <div className="flex text-[#1a1919de] flex-col items-start text-left md:w-1/4">
           <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Endereço</h3>
           <div className="flex items-center">
-            <PiHouseBold className="mr-2 mt-[-25px]" size={30} />
-            <p>
+            <PiHouseBold className="mr-2 mt-[-25px]" size={32} />
+            <p className="flex flex-col">
               <a
                 href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-lg"
+                className="underline text-lg "
               >
-                Rua Almirante Alexandrino 440 - Vila Invernada
+                Rua Almirante Alexandrino 440-   
+              </a>
+              <a
+                href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-lg "
+              >
+                 Vila Invernada
               </a>
             </p>
           </div>
-          <p className="text-lg ml-8 ">CEP: 03350-010 - São Paulo - SP</p>
+          <a
+           href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="text-lg ml-10  underline">CEP: 03350-010 - São Paulo - SP</a>
         </div>
 
         {/* Contato */}
@@ -67,11 +79,11 @@ const Footer = () => {
           <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Contato</h3>
           <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp" className="flex items-center">
             <FaWhatsapp size={30} className=" hover:text-[#6B0808]" />
-            <p className="text-lg ml-3">11 98097-6575</p>
+            <p className="text-lg ml-3 underline">(11) 98097-6575</p>
           </Link>
           <div className="mt-4 flex items-center">
             <BsTelephone size={30} className=" hover:text-[#6B0808]" />
-            <p className="text-lg ml-2">11 2966-6200</p>
+            <p className="text-lg ml-2">(11) 2966-6200</p>
           </div>
           <div className="mt-4 flex items-center">
             <MdOutlineMail size={30}  className=" hover:text-[#6B0808]"/>

@@ -21,7 +21,7 @@ export default function Home() {
       <Navbar />
       <motion.section
         id="home"
-        className="h-[70vh] bg-black flex items-center justify-center relative "
+        className="h-[55vh] bg-black flex items-center justify-center relative "
         initial="hidden"
         animate="visible"
         variants={sectionVariants}

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Corte from '../assents/Corte.png';
 import Dobra from '../assents/Dobra.jpg';
 import Furacao from '../assents/Furacao.jpg';
+import { desc } from 'framer-motion/client';
 
 // Definindo animações
 const sectionVariants = {
@@ -17,26 +18,31 @@ const servicos = [
   {
     id: 1,
     nome: "Corte",
-    descricao: "Guilhotina CN. Guilhotina: 0,40 mm a 6,35 mm.",
+    descricao: "- Guilhotina CN.",
+    descricao2: "- Medidas: 0,40 mm a 6,35 mm",
     imagem: Corte,
   },
   {
     id: 2,
     nome: "Dobra",
-    descricao: "Dobradeira CNC. Dobradeira: 0,40 mm a 6,35 mm.",
+    descricao: "- Dobradeira CNC.",
+    descricao2: "- Medidas: 0,40 mm a 6,35 mm.",
     imagem: Dobra,
   },
   {
     id: 3,
     nome: "Furação",
-    descricao: "Metaleira T90. Furos redondos ou oblongos, cortes de cantoneiras, ferro chato e redondos laminador até 3/4”.",
+    descricao: "- Metaleira T90.",
+    descricao2: "- Furos redondos ou oblongos.",
+    descricao3: "- Cortes de cantoneiras, ferro chato  e redondos laminador até 3/4”. ",
+ 
     imagem: Furacao,
   },
 ];
 
 export default function Servicos() {
   return (
-    <div className="mt-[-150px] lg:mt-[-200px]">
+    <div className="mt-[-30px] lg:mt-[-170px]">
       <motion.section
         id="servicos"
         className="min-h-screen flex items-center justify-center px-4"
@@ -54,7 +60,7 @@ export default function Servicos() {
                 key={servico.id} 
                 className="flex flex-col items-center bg-white rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-100 p-4"
               >
-                <div className="w-full h-48 sm:h-64 lg:h-80 flex items-center justify-center">
+                <div className="w-full h-48 sm:h-64 lg:h-80 flex items-center justify-center  ">
                   <Image 
                     src={servico.imagem} 
                     alt={`Imagem do ${servico.nome}`} 
@@ -63,13 +69,27 @@ export default function Servicos() {
                     className="w-full h-full object-cover bg-gray-200 rounded-md" 
                   />
                 </div>
-                <h3 className="text-2xl sm:text-3xl mb-2 font-semibold text-gray-900 mt-6 sm:mt-8">
+                <h3 className="text-2xl sm:text-3xl mb-2 font-semibold  text-gray-900 mt-6 sm:mt-8 " >
                   {servico.nome}
                 </h3>
-                <div className="mt-4 text-center sm:text-justify">
-                  <p className="max-w-xs mx-auto text-gray-800">
+                <div className="mt-5 text-start w-full ">
+                  <p className="max-w-xs  text-gray-800">
                     {servico.descricao}
                   </p>
+                  <p className="max-w-xs  text-gray-800">
+                    {servico.descricao2}
+                  </p>
+                  <p className="text-[15px] text-gray-800">
+                    {servico.descricao3}
+                  </p>
+                  <div className="">
+               
+                  {/* <p className="max-w-xs text-gray-800 ml-2">
+                    {servico.descricao4}
+                  </p> */}
+                  </div>
+                 
+                
                 </div>
               </motion.div>
             ))}

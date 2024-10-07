@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import * as React from 'react';
+import { MdOutlineMail } from 'react-icons/md';
+import { PiHouseBold } from 'react-icons/pi';
+import InputMask from 'react-input-mask'; // Importando o InputMask
 
 interface FormValues {
   name: string;
@@ -28,7 +31,7 @@ export default function Contato() {
     const { name, value } = e.target;
     setFormValues(prevValues => ({
       ...prevValues,
-      [name]: value 
+      [name]: value
     }));
   };
 
@@ -37,7 +40,7 @@ export default function Contato() {
     if (files) {
       setFormValues(prevValues => ({
         ...prevValues,
-        [name]: files[0] 
+        [name]: files[0]
       }));
     }
   };
@@ -52,7 +55,7 @@ export default function Contato() {
     formData.append('phone', formValues.phone);
     formData.append('message', formValues.message);
     if (formValues.attachment) {
-      formData.append('attachment', formValues.attachment); 
+      formData.append('attachment', formValues.attachment);
     }
 
     try {
@@ -80,7 +83,7 @@ export default function Contato() {
   };
 
   return (
-    <div className=''>
+    <div className=' lg:mt-[120px] '>
       <motion.section
         id="contato"
         className="min-h-screen flex items-center justify-center"
@@ -92,8 +95,17 @@ export default function Contato() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <div className="bg-white p-1 rounded-lg shadow-lg lg:p-16">
-              <h2 className="text-3xl text-center  font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
+            <div className="bg-white p-1 rounded-lg shadow-lg lg:p-16 ">
+              <div className="mt-4 lg:flex justify-between">
+                <h2 className="text-3xl  text-center font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
+
+                <div className="flex flex-col items-center md:flex-row md:items-start md:mt-2">
+                  <MdOutlineMail size={30} className="text-gray-800 hover:text-[#6B0808]" />
+                  <p className="text-lg ml-2">
+                    <a href="mailto:vendas@batisfer.com.br" className="underline text-gray-800">vendas@batisfer.com.br</a>
+                  </p>
+                </div>
+              </div>
 
               <div className="p-6 rounded-lg shadow-lg">
                 <form encType="multipart/form-data" className="space-y-4" onSubmit={handleSubmit}>
@@ -138,8 +150,8 @@ export default function Contato() {
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-left text-black">Telefone*</label>
-                      <input
-                        type="tel"
+                      <InputMask
+                        mask="(99) 99999-9999"
                         id="phone"
                         name="phone"
                         required
@@ -158,12 +170,15 @@ export default function Contato() {
                       required
                       value={formValues.message}
                       onChange={handleInputChange}
+                      maxLength={600}
+                      rows={6}
                       className="w-full p-2 border-2 rounded-sm border-gray-300 focus:outline-none focus:border-red-700"
                     />
+                    <p className="text-sm text-gray-500 text-left">{formValues.message.length}/600</p> 
                   </div>
 
                   <div>
-                    <label htmlFor="attachment" className="block text-left text-black">Anexo</label>
+                    <label htmlFor="attachment" className="block text-left text-black">Selecionar arquivo</label>
                     <input
                       type="file"
                       id="attachment"
@@ -188,12 +203,26 @@ export default function Contato() {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9875198709863!2d-46.56357288502028!3d-23.584601084665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e9927b8dd9b%3A0xaedc5af732c37789!2sR.%20Almirante%20Alexandrino%2C%20440%20-%20Vila%20Invernada%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003350-010%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1695234219198!5m2!1spt-BR!2sbr"
                 width="100%"
-                height="500"
+                height="700"
                 className="border-0"
                 loading="lazy"
                 title="Mapa"
               />
-              <p className="mt-4 text-center text-lg">Rua Almirante Alexandrino 440 - Vila Invernada- São Paulo - SP 03350-010, Brasil</p>
+              <div className="text-gray-800 mt-8">
+                <p className="">
+                  <a
+                    href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-lg "
+                  >
+                    Rua Almirante Alexandrino 440- Vila Invernada -CEP: 03350-010 - São Paulo - SP
+                  </a>
+
+                </p>
+
+
+              </div>
             </div>
           </div>
         </div>

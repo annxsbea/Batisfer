@@ -25,74 +25,66 @@ import Perfis from "../assents/ProdutosHome/perfis.jpg";
 const produtos = [
   {
     id: 1,
-    nome: "Tubos",
-    descricao: "Tubos de aço de diversas dimensões.",
-    imagem:Tubos,
-    link: "/produtos/tubos",
+    nome: "Chapas",
+    imagem: Chapas,
+    link: "/produtos/chapas",
   },
   {
     id: 2,
-    nome: "Slitter",
-    descricao: "Equipamento para corte de bobinas.",
-    imagem: Slitter,
-    link: "/produtos/slitter",
-  },
-  {
-    id: 3,
     nome: "Blanks",
-    descricao: "Peças cortadas de acordo com as especificações.",
     imagem: Blanks,
     link: "/produtos/blanks",
   },
   {
-    id: 4,
-    nome: "Barras",
-    descricao: "Barras de aço para construção.",
-    imagem: Barras,
-    link: "/produtos/barras",
+    id: 3,
+    nome: "Perfis",
+    imagem: Perfis,
+    link: "/produtos/perfis",
   },
+
+  {
+    id: 4,
+    nome: "Vigas",
+    imagem: Vigas,
+    link: "/produtos/vigas",
+  },
+
   {
     id: 5,
+    nome: "Laminados",
+    imagem: Laminados,
+    link: "/produtos/laminados",
+  },
+
+
+
+  {
+    id: 6,
+    nome: "Tubos",
+    imagem:Tubos,
+    link: "/produtos/tubos",
+  },
+  {
+    id: 7,
     nome: "Telhas",
-    descricao: "Telhas de aço e outros materiais.",
     imagem: Telhas,
     link: "/produtos/telhas",
   },
   {
-    id: 6,
+    id: 8,
     nome: "Bobinas",
-    descricao: "Bobinas de aço para diversos usos.",
     imagem: Bobinas,
     link: "/produtos/bobinas",
   },
   {
-    id: 7,
-    nome: "Laminados",
-    descricao: "Produtos laminados de alta qualidade.",
-    imagem: Laminados,
-    link: "/produtos/laminados",
-  },
-  {
-    id: 8,
-    nome: "Vigas",
-    descricao: "Vigas de aço para estruturação.",
-    imagem: Vigas,
-    link: "/produtos/vigas",
-  },
-  {
     id: 9,
-    nome: "Perfis",
-    descricao: "Perfis de aço para construção e estruturas.",
-    imagem: Perfis,
-    link: "/produtos/perfis",
+    nome: "Slitter",
+    imagem: Slitter,
+    link: "/produtos/slitter",
   },
-  {
-    id: 10,
-    nome: "Chapas",
-    descricao: "Chapas de aço de diferentes espessuras.",
-    imagem: Chapas,
-    link: "/produtos/chapas",
-  },
+  
+
+
 ];  
 export function Produtos() {
   return (
@@ -102,8 +94,8 @@ export function Produtos() {
       exit={{ opacity: 0, y: -20 }} 
       transition={{ duration: 0.5 }} 
     >
-      <div className="container mx-auto px-4 mt-16">
-        <div className="container mx-auto text-center px-4 text-black ">
+      <div className="container mx-auto px-4 mt-12">
+        <div className="container mx-auto text-center px-4 mb-5 text-black ">
           <h2 className="text-4xl font-semibold mb-5 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">
             Produtos
           </h2>
@@ -124,7 +116,7 @@ export function Produtos() {
                 <div className="p-1">
                   <Card className="bg-[#F9F9F9]">
                     <CardContent className="flex flex-col items-center justify-center p-6">
-                      <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 bg-slate-500">
+                      <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 ">
                         <Image
                           src={produto.imagem}
                           alt={`Imagem do ${produto.nome}`}
@@ -136,7 +128,7 @@ export function Produtos() {
                       <a href={produto.link} className="text-lg font-semibold text-[#000] hover:underline">
                         {produto.nome}
                       </a>
-                      <p className="mt-2 text-gray-700 text-sm">{produto.descricao}</p>
+                 
                     </CardContent>
                   </Card>
                 </div>

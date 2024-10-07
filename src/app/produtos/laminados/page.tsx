@@ -12,35 +12,35 @@ const produtosLaminados = [
   {
       id: 1,
       nome: "Cantoneira",
-      descricao: "Tabela de peso",
+      descricao: "",
       imagem:Cantoneira,
     },
   
   {
       id: 2,
       nome: "Ferro Chato",
-      descricao: "Tabela de peso",
+      descricao: "",
       imagem: FerroChato,
     },
   
    {
       id: 3,
       nome: "Barra Redonda",
-      descricao: "Tabela de peso",
+      descricao: "",
       imagem:BarraRedonda,
     },
   
     {
       id: 3,
       nome: "Barra Quadrada",
-      descricao: "Tabela de peso",
+      descricao: "",
       imagem: BarraQuadrada,
     },
   
   {
       id: 4,
       nome: "Perfil T",
-      descricao: "Tabela de peso",
+      descricao: "",
       imagem: perfilte,
     },
   
