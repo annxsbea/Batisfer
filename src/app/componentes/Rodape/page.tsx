@@ -28,7 +28,7 @@ const Footer = () => {
 
         {/* Redes sociais */}
         <div className="flex flex-col text-[#1a1919de] items-start md:w-1/4">
-          <h3 className="text-[#6B0808] text-xl mb-2">Redes Sociais</h3>
+          {/* <h3 className="text-[#6B0808] text-xl mb-2">Redes Sociais</h3>
           <p className="mb-4 text-left">Acompanhe as novidades da Batisfer em todas as nossas redes.</p>
           <div className="flex space-x-4">
             <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp">
@@ -40,7 +40,7 @@ const Footer = () => {
             <Link href="https://www.facebook.com/seuusuario" target="_blank" aria-label="Facebook">
               <FaFacebookF size={30} className="text-black-600 hover:text-red-800" />
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Endereço */}

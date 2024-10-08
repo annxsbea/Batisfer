@@ -27,7 +27,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const { data, error } = await resend.emails.send({
       from: 'FormContato@batisfer.com.br',
-      to: ['annxsbea@gmail.com'],
+      to: ['vendas@batisfer.com.br'],
       subject: 'Novo contato do site',
       react: EmailTemplate({ name, company, email, phone, message, hasAttachment }),
       attachments: hasAttachment && attachmentBuffer ? [{

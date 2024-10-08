@@ -4,8 +4,11 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import * as React from 'react';
 import { MdOutlineMail } from 'react-icons/md';
-import { PiHouseBold } from 'react-icons/pi';
-import InputMask from 'react-input-mask'; // Importando o InputMask
+import InputMask from 'react-input-mask';
+import { toast } from 'react-toastify';
+import { ToastAction } from "@/components/ui/toast";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster"; // Certifique-se de que esta importação está correta
 
 interface FormValues {
   name: string;
@@ -23,30 +26,26 @@ export default function Contato() {
     email: '',
     phone: '',
     message: '',
-    attachment: null
+    attachment: null,
   });
-  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormValues(prevValues => ({
-      ...prevValues,
-      [name]: value
-    }));
+    setFormValues(prevValues => ({ ...prevValues, [name]: value }));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     if (files) {
-      setFormValues(prevValues => ({
-        ...prevValues,
-        [name]: files[0]
-      }));
+      setFormValues(prevValues => ({ ...prevValues, [name]: files[0] }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const formData = new FormData();
     formData.append('name', formValues.name);
@@ -65,40 +64,34 @@ export default function Contato() {
       });
 
       if (response.ok) {
-        setStatusMessage('Email enviado com sucesso');
-        setFormValues({
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
-          message: '',
-          attachment: null
-        });
+        toast({ title: "Sucesso!", description: "Email enviado com sucesso.", variant:"default"});
+     
+        setFormValues({ name: '', company: '', email: '', phone: '', message: '', attachment: null });
       } else {
-        setStatusMessage('Erro ao enviar o email');
+        toast({
+          title: "Erro ao enviar email!",
+          description: "Ocorreu um erro ao enviar o email. Tente novamente.",
+          action: <ToastAction altText="Try again">Tente novamente</ToastAction>,
+          variant: "destructive",
+        });
       }
     } catch (error) {
-      setStatusMessage('Erro: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
+      toast({ title: "Erro!", description: "Erro desconhecido. " + error , variant: "destructive", });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className=' lg:mt-[120px] '>
-      <motion.section
-        id="contato"
-        className="min-h-screen flex items-center justify-center"
-        initial="hidden"
-        animate="visible"
-      >
+    <div className='lg:mt-[120px]'>
+      <motion.section id="contato" className="min-h-screen flex items-center justify-center" initial="hidden" animate="visible">
         <div className="container mx-auto text-center px-4 py-20 text-black">
           <h2 className="text-4xl font-semibold mb-5 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">Contato</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <div className="bg-white p-1 rounded-lg shadow-lg lg:p-16 ">
+            <div className="bg-white p-1 rounded-lg shadow-lg lg:p-16">
               <div className="mt-4 lg:flex justify-between">
-                <h2 className="text-3xl  text-center font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
-
+                <h2 className="text-3xl text-center font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
                 <div className="flex flex-col items-center md:flex-row md:items-start md:mt-2">
                   <MdOutlineMail size={30} className="text-gray-800 hover:text-[#6B0808]" />
                   <p className="text-lg ml-2">
@@ -109,7 +102,6 @@ export default function Contato() {
 
               <div className="p-6 rounded-lg shadow-lg">
                 <form encType="multipart/form-data" className="space-y-4" onSubmit={handleSubmit}>
-
                   <div>
                     <label htmlFor="name" className="block text-left text-black">Nome*</label>
                     <input
@@ -174,31 +166,25 @@ export default function Contato() {
                       rows={6}
                       className="w-full p-2 border-2 rounded-sm border-gray-300 focus:outline-none focus:border-red-700"
                     />
-                    <p className="text-sm text-gray-500 text-left">{formValues.message.length}/600</p> 
                   </div>
 
                   <div>
-                    <label htmlFor="attachment" className="block text-left text-black">Escolher arquivo</label>
+                    <label htmlFor="attachment" className="block text-left text-black">Anexo</label>
                     <input
                       type="file"
                       id="attachment"
                       name="attachment"
                       onChange={handleFileChange}
-                      className="w-full p-2 border-gray-300 focus:outline-none focus:border-red-700"
+                      className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-700"
                     />
                   </div>
 
-                  {statusMessage && <p className="text-gray-500">{statusMessage}</p>}
-
-                  <div className="flex justify-end">
-                    <button type="submit" className="bg-[#460413] text-white py-2 px-4 hover:bg-red-900  cursor-pointer">
-                      Enviar
-                    </button>
-                  </div>
+                  <button type="submit" className="bg-[#460413] text-white py-2 px-4 hover:bg-red-900 cursor-pointer" disabled={isLoading}>
+                    {isLoading ? 'Enviando...' : 'Enviar'}
+                  </button>
                 </form>
               </div>
             </div>
-
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9875198709863!2d-46.56357288502028!3d-23.584601084665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e9927b8dd9b%3A0xaedc5af732c37789!2sR.%20Almirante%20Alexandrino%2C%20440%20-%20Vila%20Invernada%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003350-010%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1695234219198!5m2!1spt-BR!2sbr"
@@ -224,9 +210,12 @@ export default function Contato() {
 
               </div>
             </div>
+       
+
           </div>
         </div>
       </motion.section>
+      <Toaster />
     </div>
   );
 }
