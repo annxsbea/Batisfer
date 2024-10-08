@@ -32,7 +32,7 @@ const servicos = [
   {
     id: 3,
     nome: "Furação",
-    descricao: "- Metaleira T90.",
+    descricao: "- Metaleira 90 ton.",
     descricao2: "- Furos redondos ou oblongos.",
     descricao3: "- Cortes de cantoneiras, ferro chato  e redondos laminados até 3/4”. ",
  

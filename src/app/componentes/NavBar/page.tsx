@@ -134,7 +134,7 @@ const Navbar = () => {
           </ScrollLink>
 
           <a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5511980976575"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
@@ -202,7 +202,16 @@ const Navbar = () => {
           </DropdownMenu>
               <ScrollLink to="contato" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Contato
-              </ScrollLink>
+              </ScrollLink>  
+          <a
+            href="https://wa.me/5511980976575"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
+          >
+            <FaWhatsapp className="w-5 h-5" />
+            <span>Enviar Cotação</span>
+          </a>
             </nav>
           </div>
         </div>

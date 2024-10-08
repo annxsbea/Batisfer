@@ -89,13 +89,16 @@ const NavbarProdutos = () => {
             )}
           </DropdownMenu>
 
-          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
-            Contato
-          </Link>
-          <Link href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white">
+          <a
+            href="https://wa.me/5511980976575"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
+          >
             <FaWhatsapp className="w-5 h-5" />
             <span>Enviar Cotação</span>
-          </Link>
+          </a>
+        
         </nav>
       </div>
 
@@ -158,6 +161,17 @@ const NavbarProdutos = () => {
               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Contato
               </Link>
+
+              
+          <a
+            href="https://wa.me/5511980976575"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
+          >
+            <FaWhatsapp className="w-5 h-5" />
+            <span>Enviar Cotação</span>
+          </a>
             </nav>
           </div>
         </div>

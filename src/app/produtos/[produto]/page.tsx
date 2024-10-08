@@ -238,7 +238,6 @@ const produtos: ProdutosCategoria = {
 export default function ProdutoPage({ params }: { params: { produto: string } }) {
     const { produto } = params;
 
-    // Verifique se o produto existe
     const produtosCategoria = produtos[produto];
 
     if (!produtosCategoria) {
@@ -252,18 +251,18 @@ export default function ProdutoPage({ params }: { params: { produto: string } })
             <main className="flex-grow">
                 <div className="container mx-auto py-12 mt-32 max-w-screen-lg">
                     <div className="text-center mb-16">
-                        <h1 className="text-4xl font-bold mb-4 text-[#6B0808] underline">
+                        <h1 className="text-4xl font-bold mb-4 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">
                             {produto.charAt(0).toUpperCase() + produto.slice(1)}
                         </h1>
                  
                     </div>
 
                     {/* Produtos */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {produtosCategoria.map((produtoItem) => (
                             <div
                                 key={produtoItem.id}
-                                className="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition duration-300 ease-in-out"
+                                className="bg-white shadow-lg rounded-lg items-center flex flex-col justify-center p-6 transform hover:scale-105 transition duration-300 ease-in-out"
                             >
                                 <Image
                                     src={produtoItem.imagem}
@@ -275,7 +274,7 @@ export default function ProdutoPage({ params }: { params: { produto: string } })
                                 <h2 className="text-2xl font-semibold mt-4 text-black">
                                     {produtoItem.nome}
                                 </h2>
-                                <p className="mt-3 text-gray-600">{produtoItem.descricao}</p>
+                                <p className="mt-3 text-gray-600 ">{produtoItem.descricao}</p>
                             </div>
                         ))}
                     </div>
