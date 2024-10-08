@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import Image from 'next/image';
 import Logo from '../../../assents/Logo.png';
@@ -64,12 +64,19 @@ const Navbar = () => {
     setIsDropdownOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
+
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      closeDropdown();
+    }, 900); // Ajuste o tempo conforme necessário
   };
 
   const closeDropdown = () => {
@@ -94,53 +101,53 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </ScrollLink>
-          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
-          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 
-       <div className="relative">
-      <button
-        onClick={toggleDropdown}
-        className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
-        onMouseEnter={handleMouseEnter}
-      >
-        Produtos
-        <IoIosArrowDown className="w-5 h-5 ml-2" />
-      </button>
+          <div className="relative" ref={dropdownRef} onMouseLeave={handleMouseLeave}>
+          <button
+            onClick={toggleDropdown}
+            className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
+            onMouseEnter={handleMouseEnter}
+          >
+            Produtos
+            <IoIosArrowDown className="w-5 h-5 ml-2" />
+          </button>
 
-      {/* Dropdown menu */}
-      {isDropdownOpen && (
-        <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseLeave={closeDropdown} >
-          {[
-            "chapas",
-            "blanks",
-            "perfis",
-            "vigas",
-            "laminados",
-            "tubos",
-            "telhas",
-            "bobinas",
-            "slitter",
-          ].map((produto) => (
-            <li key={produto} className="hover:bg-gray-100">
-              <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
-                {produto.charAt(0).toUpperCase() + produto.slice(1)}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+          {/* Dropdown menu */}
+          {isDropdownOpen && (
+            <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              {[
+                "chapas",
+                "blanks",
+                "perfis",
+                "vigas",
+                "laminados",
+                "tubos",
+                "telhas",
+                "bobinas",
+                "slitter",
+              ].map((produto) => (
+                <li key={produto} className="hover:bg-gray-100">
+                  <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
+                    {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-          <ScrollLink to="contato" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
-            Contato
-          </ScrollLink>
+    <ScrollLink to="contato" smooth={true} duration={500} onClick={() => { scrollToSection('contato'); closeDropdown(); }} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+  Contato
+</ScrollLink>
 
           <a
             href="https://wa.me/5511980976575"

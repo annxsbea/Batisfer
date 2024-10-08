@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import Image from 'next/image';
 import Logo from '../../../assents/Logo.png';
@@ -47,20 +47,27 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+
   const handleMouseEnter = () => {
     setIsDropdownOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
+
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const closeDropdown = () => {
     setIsDropdownOpen(false);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      closeDropdown();
+    }, 900); // Ajuste o tempo conforme necessário
   };
   const toggleProducts = () => {
     setIsProductsOpen(!isProductsOpen);
@@ -100,51 +107,50 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-        <Link href="/" className="hover:text-gray-400">
+        <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
                 Home
-              </Link>  <Link href="/" className="hover:text-gray-400">
+              </Link>  <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
                 Empresa
               </Link>
-              <Link href="/" className="hover:text-gray-400">
+              <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
                 Serviços
               </Link>
 
          
-       <div className="relative">
-      <button
-        onClick={toggleDropdown}
-        className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
-        onMouseEnter={handleMouseEnter}
-      >
-        Produtos
-        <IoIosArrowDown className="w-5 h-5 ml-2" />
-      </button>
+              <div className="relative" ref={dropdownRef} onMouseLeave={handleMouseLeave}>
+          <button
+            onClick={toggleDropdown}
+            className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
+            onMouseEnter={handleMouseEnter}
+          >
+            Produtos
+            <IoIosArrowDown className="w-5 h-5 ml-2" />
+          </button>
 
-      {/* Dropdown menu */}
-      {isDropdownOpen && (
-        <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseLeave={closeDropdown} >
-          {[
-            "chapas",
-            "blanks",
-            "perfis",
-            "vigas",
-            "laminados",
-            "tubos",
-            "telhas",
-            "bobinas",
-            "slitter",
-          ].map((produto) => (
-            <li key={produto} className="hover:bg-gray-100">
-              <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
-                {produto.charAt(0).toUpperCase() + produto.slice(1)}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-
-          <Link href="/" className="hover:text-gray-400">
+          {/* Dropdown menu */}
+          {isDropdownOpen && (
+            <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              {[
+                "chapas",
+                "blanks",
+                "perfis",
+                "vigas",
+                "laminados",
+                "tubos",
+                "telhas",
+                "bobinas",
+                "slitter",
+              ].map((produto) => (
+                <li key={produto} className="hover:bg-gray-100">
+                  <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
+                    {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+          <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
                 Contato
               </Link> 
 
