@@ -4,19 +4,18 @@ import { useRouter } from "next/router";
 import Navbar2 from "@/app/componentes/NavBar2/page";
 import Footer from "@/app/componentes/Rodape/page";
 import Image, { StaticImageData } from "next/image";
+
 import chapafinaquente from "@/assents/FotosProdutos/Chapas/chapafinaquente.jpg";
 import chapagalvanizada from "@/assents/FotosProdutos/Chapas/chapagalvanizada.jpg";
 import chapagrossa from "@/assents/FotosProdutos/Chapas/chapagrossa.jpg";
 import chapaxadrez from "@/assents/FotosProdutos/Chapas/chapaxadrez.jpg";
 import Perfili from "../../../assents/FotosProdutos/Vigas/perfili.jpg";
 import Perfillu from "@/assents/FotosProdutos/Perfis/perfilu.jpg";
-
 import Cantoneira from "@/assents/FotosProdutos/Laminados/cantoneira.jpg";
 import FerroChato from "@/assents/FotosProdutos/Laminados/ferrochato.jpg";
 import BarraRedonda from "@/assents/FotosProdutos/Laminados/barraredonda.jpg";
 import BarraQuadrada from "@/assents/FotosProdutos/Laminados/barraquadrada.jpg";
 import perfilte from "@/assents/FotosProdutos/Laminados/perfilt.jpg";
-
 import blanks from "@/assents/FotosProdutos/Blanks/blanks.png";
 import bobinas from "@/assents/FotosProdutos/Bobinas/bobinas.jpg";
 import perfildobradoespecial from "@/assents/FotosProdutos/Perfis/perfildobradoespecial.jpg";
@@ -248,7 +247,7 @@ export default function ProdutoPage({ params }: { params: { produto: string } })
         <div className="flex flex-col min-h-screen">
             <Navbar2 />
 
-            <main className="flex-grow">
+            <main className="flex-grow ">
                 <div className="container mx-auto py-12 mt-32 max-w-screen-lg">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl font-bold mb-4 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">

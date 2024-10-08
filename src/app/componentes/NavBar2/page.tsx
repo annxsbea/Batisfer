@@ -1,39 +1,93 @@
 'use client';
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import Image from 'next/image';
 import Logo from '../../../assents/Logo.png';
-import Text from '@/assents/Text.png';
+import Text from '@/assents/Text.png'
+import Link from "next/link";
+import { FaAngleDown, FaAngleUp, FaWhatsapp } from 'react-icons/fa';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-  DropdownMenuItem
+  DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { FaWhatsapp } from 'react-icons/fa';
+import { IoIosArrowDown } from 'react-icons/io';
 
-const NavbarProdutos = () => {
+const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navbarHeight = 78;
+  const navbarHeightMobile = 180;
 
-  const handleProductsClick = () => {
-    setIsDropdownOpen(!isDropdownOpen); // Alterna a visibilidade do dropdown
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'quem-somos', 'servicos', 'produtos', 'contato'];
+      let currentSection = 'home';
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= element.offsetTop - navbarHeight - 150) {
+          currentSection = section;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Alterna a visibilidade do menu mobile
+    setIsMenuOpen(!isMenuOpen);
+  };
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+  const toggleProducts = () => {
+    setIsProductsOpen(!isProductsOpen);
+  };
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionTop - 120, behavior: "smooth" });
+    }
+  };
+
+  const handleProductsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setIsDropdownOpen(!isDropdownOpen);
+    scrollToSection("produtos");
   };
 
   return (
     <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        <div>
-          <Link href="/">
-            <Image src={Logo} alt="Logo" width={250} height={250} className="w-32 h-auto" priority />
-            <Image src={Text} alt="Text" width={250} height={250} className="w-32 h-auto" priority />
-          </Link>
-        </div>
+      <div className="container mx-auto flex justify-between items-center px-4 ">
+        <Link href="/" className='mt-[-25px]'>
+
+          <Image src={Logo} alt="Logo" width={250} height={250} className="w-40 h-auto" priority />
+          <Image src={Text} alt="Text" width={150} height={250} className=" h-auto" priority />
+
+        </Link>
 
         <button
           className="mr-10 lg:hidden text-gray-700 focus:outline-none"
@@ -45,49 +99,54 @@ const NavbarProdutos = () => {
           </svg>
         </button>
 
-        <nav className="hidden lg:flex space-x-10 text-lg font-bold">
-          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
-            Home
-          </Link>
-          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'empresa' ? 'border-b-4 border-red-500' : ''}`}>
-            Quem Somos
-          </Link>
-          <Link href="/" className={`hover:text-gray-400 ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
-            Serviços
-          </Link>
+        <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
+        <Link href="/" className="hover:text-gray-400">
+                Home
+              </Link>  <Link href="/" className="hover:text-gray-400">
+                Empresa
+              </Link>
+              <Link href="/" className="hover:text-gray-400">
+                Serviços
+              </Link>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                onClick={handleProductsClick}
-                className={`hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
-              >
-                Produtos
-              </button>
-            </DropdownMenuTrigger>
+         
+       <div className="relative">
+      <button
+        onClick={toggleDropdown}
+        className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
+        onMouseEnter={handleMouseEnter}
+      >
+        Produtos
+        <IoIosArrowDown className="w-5 h-5 ml-2" />
+      </button>
 
-            {isDropdownOpen && (
-              <DropdownMenuContent className="bg-white shadow-md rounded-md">
-                {[
-                  "chapas",
-                  "blanks",
-                  "perfis",
-                  "vigas",
-                  "laminados",
-                  "tubos",
-                  "telhas",
-                  "bobinas",
-                  "slitter",
-                ].map((produto) => (
-                  <DropdownMenuItem asChild key={produto}>
-                    <Link href={`/produtos/${produto}`}>
-                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            )}
-          </DropdownMenu>
+      {/* Dropdown menu */}
+      {isDropdownOpen && (
+        <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseLeave={closeDropdown} >
+          {[
+            "chapas",
+            "blanks",
+            "perfis",
+            "vigas",
+            "laminados",
+            "tubos",
+            "telhas",
+            "bobinas",
+            "slitter",
+          ].map((produto) => (
+            <li key={produto} className="hover:bg-gray-100">
+              <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
+                {produto.charAt(0).toUpperCase() + produto.slice(1)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+          <Link href="/" className="hover:text-gray-400">
+                Contato
+              </Link> 
 
           <a
             href="https://wa.me/5511980976575"
@@ -98,7 +157,6 @@ const NavbarProdutos = () => {
             <FaWhatsapp className="w-5 h-5" />
             <span>Enviar Cotação</span>
           </a>
-        
         </nav>
       </div>
 
@@ -113,10 +171,10 @@ const NavbarProdutos = () => {
             </button>
 
             <nav className="flex flex-col space-y-3 mt-8 text-[22px]">
-              <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
+            <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Home
-              </Link>
-              <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
+              </Link> 
+               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Empresa
               </Link>
               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
@@ -125,12 +183,13 @@ const NavbarProdutos = () => {
 
               <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button
-                onClick={handleProductsClick}
-                className={`mr-52 hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
-              >
-                Produtos
-              </button>
+            <button
+                    onClick={handleProductsClick}
+                    className={`mr-16 flex hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
+                  >
+                  Produtos
+                  <IoIosArrowDown className="w-5 h-5  ml-2 mt-2" />
+                  </button>
             </DropdownMenuTrigger>
 
             {isDropdownOpen && (
@@ -157,12 +216,9 @@ const NavbarProdutos = () => {
             )}
 
           </DropdownMenu>
-
               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Contato
               </Link>
-
-              
           <a
             href="https://wa.me/5511980976575"
             target="_blank"
@@ -180,4 +236,4 @@ const NavbarProdutos = () => {
   );
 };
 
-export default NavbarProdutos;
+export default Navbar;

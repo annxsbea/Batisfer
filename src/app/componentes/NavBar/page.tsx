@@ -12,12 +12,13 @@ import {
   DropdownMenuTrigger,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const navbarHeight = 78;
   const navbarHeightMobile = 180;
 
@@ -47,9 +48,6 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleProducts = () => {
-    setIsProductsOpen(!isProductsOpen);
-  };
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -60,10 +58,23 @@ const Navbar = () => {
 
   const handleProductsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setIsDropdownOpen(!isDropdownOpen);
-    scrollToSection("produtos");
+    setIsDropdownOpen(!isDropdownOpen); 
+  };
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
   };
 
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
   return (
     <header className="bg-white text-black fixed top-0 w-full z-10 py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center px-4 ">
@@ -83,53 +94,51 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400   cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </ScrollLink>
-          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
-          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                onClick={handleProductsClick}
-                className={`hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
-              >
-                Produtos
-              </button>
-            </DropdownMenuTrigger>
+       <div className="relative">
+      <button
+        onClick={toggleDropdown}
+        className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
+        onMouseEnter={handleMouseEnter}
+      >
+        Produtos
+        <IoIosArrowDown className="w-5 h-5 ml-2" />
+      </button>
 
-            {isDropdownOpen && (
-              <DropdownMenuContent className="bg-white shadow-md rounded-md">
-                {/* Lista de produtos */}
-                {[
-                  "chapas",
-                  "blanks",
-                  "perfis",
-                  "vigas",
-                  "laminados",
-                  "tubos",
-                  "telhas",
-                  "bobinas",                 
-                  "slitter",
-                  
-                ].map((produto) => (
-                  <DropdownMenuItem asChild key={produto}>
-                    <Link href={`/produtos/${produto}`}>
-                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            )}
+      {/* Dropdown menu */}
+      {isDropdownOpen && (
+        <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseLeave={closeDropdown} >
+          {[
+            "chapas",
+            "blanks",
+            "perfis",
+            "vigas",
+            "laminados",
+            "tubos",
+            "telhas",
+            "bobinas",
+            "slitter",
+          ].map((produto) => (
+            <li key={produto} className="hover:bg-gray-100">
+              <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
+                {produto.charAt(0).toUpperCase() + produto.slice(1)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
 
-          </DropdownMenu>
-
-          <ScrollLink to="contato" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400  cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="contato" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
             Contato
           </ScrollLink>
 
@@ -167,51 +176,42 @@ const Navbar = () => {
               </ScrollLink>
 
               <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                onClick={handleProductsClick}
-                className={`mr-52 hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
-              >
-                Produtos
-              </button>
-            </DropdownMenuTrigger>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    onClick={handleProductsClick}
+                    className={`mr-16 flex hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
+                  >
+                  Produtos
+                  <IoIosArrowDown className="w-5 h-5  ml-2 mt-2" />
+                  </button>
+                </DropdownMenuTrigger>
 
-            {isDropdownOpen && (
-              <DropdownMenuContent className="bg-white shadow-md rounded-md">
-                {/* Lista de produtos */}
-                {[
-                   "chapas",
-                   "blanks",
-                   "perfis",
-                   "vigas",
-                   "laminados",
-                   "tubos",
-                   "telhas",
-                   "bobinas",                 
-                   "slitter",
-                ].map((produto) => (
-                  <DropdownMenuItem asChild key={produto}>
-                    <Link href={`/produtos/${produto}`}>
-                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            )}
+                {isDropdownOpen && (
+                  <DropdownMenuContent className="bg-white shadow-md rounded-md">
+                    {[
+                      "chapas",
+                      "blanks",
+                      "perfis",
+                      "vigas",
+                      "laminados",
+                      "tubos",
+                      "telhas",
+                      "bobinas",
+                      "slitter",
+                    ].map((produto) => (
+                      <DropdownMenuItem asChild key={produto}>
+                        <Link href={`/produtos/${produto}`}>
+                          {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                )}
+              </DropdownMenu>
 
-          </DropdownMenu>
               <ScrollLink to="contato" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Contato
-              </ScrollLink>  
-          <a
-            href="https://wa.me/5511980976575"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
-          >
-            <FaWhatsapp className="w-5 h-5" />
-            <span>Enviar Cotação</span>
-          </a>
+              </ScrollLink>
             </nav>
           </div>
         </div>
