@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Batisfer",
   description: "Soluções em aço",
   icons: {
-    icon: "/favicon.ico",  // Configurando o favicon aqui
+    icon: "/favicon.ico",  // Certifique-se de que o favicon está no diretório public
   },
 };
 
@@ -28,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
