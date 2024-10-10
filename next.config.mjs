@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.optimization.minimizer.forEach((minimizer) => {
-        minimizer.options.parallelism = 1; // Limita a 1 worker
-      });
-    }
-    return config;
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+  },
+  experimental: {
+    workerThreads: false, // Desativa o uso de worker threads no build
+    cpus: 1, // Limita o uso de CPUs
   },
 };
 
