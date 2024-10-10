@@ -107,7 +107,7 @@ const Navbar = () => {
           <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
-          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeightMobile}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 

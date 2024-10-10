@@ -31,7 +31,7 @@ export default function Home() {
           alt="Home"
           layout="fill"
           objectFit="cover"
-          className=" opacity-30"
+          className=" opacity-45"
         />
         <div className="absolute inset-0 flex items-center justify-center ">
         </div>

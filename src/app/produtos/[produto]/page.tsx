@@ -22,7 +22,7 @@ import perfildobradoespecial from "@/assents/FotosProdutos/Perfis/perfildobradoe
 import perfiluenrijecido from "@/assents/FotosProdutos/Perfis/perfiluenrijecido.jpg";
 import slitter from "@/assents/FotosProdutos/Slitter/slitter.jpg";
 import onduladas from "@/assents/FotosProdutos/Telhas/onduladas.jpg";
-import trapezio25 from "@/assents/FotosProdutos/Telhas/trapezio25.jpg";
+import trapezio25 from "@/assents/FotosProdutos/Telhas/trapezio25.png";
 import trapezio40 from "@/assents/FotosProdutos/Telhas/trapezio40.jpg";
 import tubosquadrados from "@/assents/FotosProdutos/Tubos/tubosquadrados.jpg";
 import tubosredondos from "@/assents/FotosProdutos/Tubos/tubosredondos.jpg";
