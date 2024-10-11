@@ -42,7 +42,7 @@ const servicos = [
 
 export default function Servicos() {
   return (
-    <div className="mt-[50px] lg:mt-[-70px]">
+    <div className="mt-[50px] lg:mt-[-190px]">
       <motion.section
         id="servicos"
         className="min-h-screen flex items-center justify-center px-4"

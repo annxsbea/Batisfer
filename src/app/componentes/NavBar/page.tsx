@@ -20,7 +20,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navbarHeight = 78;
-  const navbarHeightMobile = 180;
+  const navbarHeightMobile = 100;
 
   useEffect(() => {
     const handleScroll = () => {

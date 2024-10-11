@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Tubos from "../assents/ProdutosHome/tubos.jpg";
 import Slitter from "../assents/ProdutosHome/slitter.jpg";
-import Blanks from "../assents/ProdutosHome/blanks.png";
+import Blanks from "../assents/ProdutosHome/blanks.jpg";
 import Barras from "../assents/ProdutosHome/barraslaminadas.jpg";
 import Telhas from "../assents/ProdutosHome/telhas.jpg";
 import Chapas from "../assents/ProdutosHome/chapas.jpg";

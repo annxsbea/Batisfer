@@ -70,10 +70,18 @@ const Footer = () => {
         {/* Contato */}
         <div className="flex flex-col text-[#1a1919de] items-start md:w-1/4">
           <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Contato</h3>
-          <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp" className="flex items-center">
-            <FaWhatsapp size={30} className=" hover:text-[#6B0808]" />
+          <div className="flex items-center">
+          <FaWhatsapp size={30} className=" hover:text-[#6B0808]" />
+          <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp" className="">
+           
             <p className="text-lg ml-3 underline">(11) 98097-6575</p>
           </Link>
+          <p className="text-[23px] ml-3"> /</p>
+          <Link href="https://wa.me/5511942239009" target="_blank" aria-label="WhatsApp" className="">
+            <p className="text-lg ml-3 underline">(11) 94223-9009</p>
+          </Link>
+          </div>
+         
           <div className="mt-4 flex items-center">
             <BsTelephone size={30} className=" hover:text-[#6B0808]" />
             <p className="text-lg ml-2">(11) 2966-6200</p>

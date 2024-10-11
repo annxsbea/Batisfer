@@ -16,7 +16,7 @@ import FerroChato from "@/assents/FotosProdutos/Laminados/ferrochato.jpg";
 import BarraRedonda from "@/assents/FotosProdutos/Laminados/barraredonda.jpg";
 import BarraQuadrada from "@/assents/FotosProdutos/Laminados/barraquadrada.jpg";
 import perfilte from "@/assents/FotosProdutos/Laminados/perfilt.jpg";
-import blanks from "@/assents/FotosProdutos/Blanks/blanks.png";
+import blanks from "@/assents/FotosProdutos/Blanks/blanks.jpg";
 import bobinas from "@/assents/FotosProdutos/Bobinas/bobinas.jpg";
 import perfildobradoespecial from "@/assents/FotosProdutos/Perfis/perfildobradoespecial.jpg";
 import perfiluenrijecido from "@/assents/FotosProdutos/Perfis/perfiluenrijecido.jpg";
