@@ -122,7 +122,7 @@ export function Produtos() {
                           alt={`Imagem do ${produto.nome}`}
                           width={220}
                           height={220}
-                          className="w-36 h-36 object-cover rounded-md md:w-full md:h-full"
+                          className="w-36 h-36 object-cover rounded-md md:w-52 md:h-52 lg:w-56 lg:h-56"
                         />
                       </div>
                       <a href={produto.link} className="text-lg font-semibold text-[#000] hover:underline">
