@@ -95,7 +95,7 @@ const Footer = () => {
       {/* Direitos reservados */}
       <div className="flex justify-center items-center text-[#1a1919de] bg-gray-200 py-4 px-4 relative">
         <p>&copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.</p>
-        <p className="absolute right-4 text-gray-500 text-sm">
+        <p className="lg:absolute lg:right-4  text-gray-500 text-sm">
           <a href="mailto:annxsbea@gmail.com" className="underline">Developed by: Annxsbea</a>
         </p>
       </div>
