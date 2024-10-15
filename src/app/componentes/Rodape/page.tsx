@@ -10,25 +10,25 @@ import logo1 from "../../../assents/logo1.png";
 const Footer = () => {
   return (
     <footer className="text-[#201E1E] font-semibold w-full  bg-gray-100">
-      <div className="flex flex-col md:flex-row justify-between items-start bg-gray-200 py-8 px-4 space-y-8 md:space-y-0">
+      <div className="flex flex-col md:flex-row justify-between items-start bg-gray-200 py-8 px-16 space-y-8 md:px-3 md:space-x-5">
 
         {/* Logo */}
-        <div className="flex flex-col justify-center items-center lg:items-start">
+        <div className="flex flex-col justify-center items-center md:items-start lg:items-start">
           <Link href="/">
             <Image
               src={logo1}
               alt="Logo"
               width={350}
               height={350}
-              className="w-32 h-auto sm:w-48 md:w-40"
+              className="w-32 h-auto sm:w-48 md:w-48 "
               priority
             />
           </Link>
         </div>
 
         {/* Redes sociais */}
-        <div className="flex flex-col text-[#1a1919de] items-start md:w-1/4">
-          {/* <h3 className="text-[#6B0808] text-xl mb-2">Redes Sociais</h3>
+        {/* <div className="flex flex-col text-[#1a1919de] items-start md:w-1/2">:
+          <h3 className="text-[#6B0808] text-xl mb-2">Redes Sociais</h3>
           <p className="mb-4 text-left">Acompanhe as novidades da Batisfer em todas as nossas redes.</p>
           <div className="flex space-x-4">
             <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp">
@@ -40,8 +40,8 @@ const Footer = () => {
             <Link href="https://www.facebook.com/seuusuario" target="_blank" aria-label="Facebook">
               <FaFacebookF size={30} className="text-black-600 hover:text-red-800" />
             </Link>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
 
         {/* Endereço */}
         <div className="flex text-[#1a1919de] flex-col items-start text-left ">
@@ -55,18 +55,10 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="underline text-lg"
               >
-                Rua Almirante Alexandrino, 440
+                Rua Almirante Alexandrino, 440 - CEP: 03350-010 - São Paulo - SP
               </a>
             </p>
 
-            <a
-              href="https://www.google.com/maps?q=Rua+Almirante+Alexandrino+440+-+Vila+Invernada,+São+Paulo+-+SP,+03350-010,+Brasil"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg underline"
-            >
-              CEP: 03350-010 - São Paulo - SP
-            </a>
           </div>
 
 
@@ -101,9 +93,14 @@ const Footer = () => {
       </div>
 
       {/* Direitos reservados */}
-      <div className="text-left text-[#1a1919de] bg-gray-200 py-4 px-4 md:text-center lg:text-center">
+      <div className="flex justify-center items-center text-[#1a1919de] bg-gray-200 py-4 px-4 relative">
         <p>&copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.</p>
+        <p className="absolute right-4 text-gray-500 text-sm">
+          <a href="mailto:annxsbea@gmail.com" className="underline">Developed by: Annxsbea</a>
+        </p>
       </div>
+
+
     </footer>
   );
 };

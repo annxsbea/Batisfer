@@ -40,13 +40,13 @@ export default function QuemSomos() {
               </p>
             </div>
             <div className="flex items-start mb-6 justify-center max-w-2xl">
-              <FaSquareFull size={12} className="text-black mt-4 " />
+              <FaSquareFull size={14} className="text-black mt-4 " />
               <p className="text-base ml-3 sm:text-lg mt-2 text-gray-700 text-justify">
                 No decorrer dos anos, percebeu a necessidade do mercado em produtos e serviços de corte, dobra e furação de chapas e vigas laminadas sob medida.
               </p>
             </div>
             <div className="flex items-start mb-6 justify-center max-w-2xl">
-              <FaSquareFull size={12} className="text-black mt-4" />
+              <FaSquareFull size={15} className="text-black mt-4" />
               <p className="text-base ml-3 sm:text-lg mt-2 text-gray-700 text-justify">
                 Com o compromisso de atender com excelência e investindo em maquinários novos, a Batisfer preza pela qualidade, segurança e o melhor prazo de entrega do mercado.
               </p>
