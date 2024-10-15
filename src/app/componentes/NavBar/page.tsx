@@ -23,7 +23,20 @@ const Navbar = () => {
   const navbarHeightMobile = 100;
 
   useEffect(() => {
+    const querySplit = window.location.href.split('?q=');
+    const query = querySplit.length > 1 ? querySplit[1] : '';
+
+    const section = document.getElementById(query);
+
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - navbarHeight,
+        behavior: 'smooth',
+      })
+    }
     const handleScroll = () => {
+
+
       const sections = ['home', 'quem-somos', 'servicos', 'produtos', 'contato'];
       let currentSection = 'home';
 
@@ -101,13 +114,13 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400 cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </ScrollLink>
-          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
-          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeightMobile}  onClick={() => { scrollToSection('contato'); closeDropdown(); }} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeightMobile}   className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 
@@ -145,7 +158,7 @@ const Navbar = () => {
           )}
         </div>
 
-    <ScrollLink to="contato" smooth={true} duration={500} onClick={() => { scrollToSection('contato'); closeDropdown(); }} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+    <ScrollLink to="contato" smooth={true} duration={500}  offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
   Contato
 </ScrollLink>
 

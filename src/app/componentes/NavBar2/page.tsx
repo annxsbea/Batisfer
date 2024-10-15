@@ -107,52 +107,52 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
-        <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
-                Home
-              </Link>  <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
-                Empresa
-              </Link>
-              <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
-                Serviços
-              </Link>
+          <Link href="/" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+            Home
+          </Link>  <Link href="/?q=quem-somos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+            Empresa
+          </Link>
+          <Link href="/?q=servicos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+            Serviços
+          </Link>
 
-         
-              <div className="relative" ref={dropdownRef} onMouseLeave={handleMouseLeave}>
-          <button
-            onClick={toggleDropdown}
-            className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
-            onMouseEnter={handleMouseEnter}
-          >
-            Produtos
-            <IoIosArrowDown className="w-5 h-5 ml-2" />
-          </button>
 
-          {/* Dropdown menu */}
-          {isDropdownOpen && (
-            <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              {[
-                "chapas",
-                "blanks",
-                "perfis",
-                "vigas",
-                "laminados",
-                "tubos",
-                "telhas",
-                "bobinas",
-                "slitter",
-              ].map((produto) => (
-                <li key={produto} className="hover:bg-gray-100">
-                  <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
-                    {produto.charAt(0).toUpperCase() + produto.slice(1)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-          <Link href="/" className="hover:text-gray-400"  onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
-                Contato
-              </Link> 
+          <div className="relative" ref={dropdownRef} onMouseLeave={handleMouseLeave}>
+            <button
+              onClick={toggleDropdown}
+              className="hover:text-gray-400 flex items-center border-b-4 border-transparent"
+              onMouseEnter={handleMouseEnter}
+            >
+              Produtos
+              <IoIosArrowDown className="w-5 h-5 ml-2" />
+            </button>
+
+            {/* Dropdown menu */}
+            {isDropdownOpen && (
+              <ul className="absolute text-sm bg-white border border-gray-300 rounded-md mt-2 w-32 z-50" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                {[
+                  "chapas",
+                  "blanks",
+                  "perfis",
+                  "vigas",
+                  "laminados",
+                  "tubos",
+                  "telhas",
+                  "bobinas",
+                  "slitter",
+                ].map((produto) => (
+                  <li key={produto} className="hover:bg-gray-100">
+                    <Link href={`/produtos/${produto}`} className="block px-4 py-2 text-gray-700">
+                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <Link href="/?q=contato" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+            Contato
+          </Link>
 
           <a
             href="https://wa.me/5511980976575"
@@ -177,63 +177,63 @@ const Navbar = () => {
             </button>
 
             <nav className="flex flex-col space-y-3 mt-8 text-[22px]">
-            <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
+              <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Home
-              </Link> 
-               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
+              </Link>
+              <Link href="/?q=quem-somos" onClick={toggleMenu} className="hover:text-gray-400">
                 Empresa
               </Link>
-              <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
+              <Link href="/?q=servicos" onClick={toggleMenu} className="hover:text-gray-400">
                 Serviços
               </Link>
 
               <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-            <button
+                <DropdownMenuTrigger asChild>
+                  <button
                     onClick={handleProductsClick}
                     className={`mr-16 flex hover:text-gray-400 ${activeSection === "produtos" ? "border-b-4 border-red-500" : ""}`}
                   >
-                  Produtos
-                  <IoIosArrowDown className="w-5 h-5  ml-2 mt-2" />
+                    Produtos
+                    <IoIosArrowDown className="w-5 h-5  ml-2 mt-2" />
                   </button>
-            </DropdownMenuTrigger>
+                </DropdownMenuTrigger>
 
-            {isDropdownOpen && (
-              <DropdownMenuContent className="bg-white shadow-md rounded-md">
-                {/* Lista de produtos */}
-                {[
-                   "chapas",
-                   "blanks",
-                   "perfis",
-                   "vigas",
-                   "laminados",
-                   "tubos",
-                   "telhas",
-                   "bobinas",                 
-                   "slitter",
-                ].map((produto) => (
-                  <DropdownMenuItem asChild key={produto}>
-                    <Link href={`/produtos/${produto}`}>
-                      {produto.charAt(0).toUpperCase() + produto.slice(1)}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            )}
+                {isDropdownOpen && (
+                  <DropdownMenuContent className="bg-white shadow-md rounded-md">
+                    {/* Lista de produtos */}
+                    {[
+                      "chapas",
+                      "blanks",
+                      "perfis",
+                      "vigas",
+                      "laminados",
+                      "tubos",
+                      "telhas",
+                      "bobinas",
+                      "slitter",
+                    ].map((produto) => (
+                      <DropdownMenuItem asChild key={produto}>
+                        <Link href={`/produtos/${produto}`}>
+                          {produto.charAt(0).toUpperCase() + produto.slice(1)}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                )}
 
-          </DropdownMenu>
-              <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
+              </DropdownMenu>
+              <Link href="/?q=contato" onClick={toggleMenu} className="hover:text-gray-400">
                 Contato
               </Link>
-          <a
-            href="https://wa.me/5511980976575"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
-          >
-            <FaWhatsapp className="w-5 h-5" />
-            <span>Enviar Cotação</span>
-          </a>
+              <a
+                href="https://wa.me/5511980976575"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                <span>Enviar Cotação</span>
+              </a>
             </nav>
           </div>
         </div>
