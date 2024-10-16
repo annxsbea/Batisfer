@@ -65,42 +65,47 @@ const Footer = () => {
         </div>
 
         {/* Contato */}
-        <div className="flex flex-col text-[#1a1919de] items-start ">
-          <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Contato</h3>
-          <div className="flex items-center">
-            <FaWhatsapp size={30} className=" hover:text-[#6B0808]" />
-            <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp" className="">
+        <div className="flex flex-col justify-between text-[#1a1919de]">
+          {/* Seção de contato no topo */}
+          <div className="flex flex-col text-[#1a1919de] items-start">
+            <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Contato</h3>
 
-              <p className="text-lg ml-3 underline">(11) 98097-6575</p>
-            </Link>
-            <p className="text-[23px] ml-3"> /</p>
-            <Link href="https://wa.me/5511942239009" target="_blank" aria-label="WhatsApp" className="">
-              <p className="text-lg ml-3 underline">(11) 94223-9009</p>
-            </Link>
-          </div>
+            <div className="flex  flex-wrap items-center gap-2">
+              <FaWhatsapp size={30} className="hover:text-[#6B0808]" />
+              <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp">
+                <p className="text-sm md:text-lg underline">(11) 98097-6575</p>
+              </Link>
+              <p className="text-[23px]">/</p> {/* Barra entre os números */}
+              <Link href="https://wa.me/5511942239009" target="_blank" aria-label="WhatsApp">
+                <p className="text-sm md:text-lg underline">(11) 94223-9009</p>
+              </Link>
+            </div>
 
-          <div className="mt-4 flex items-center">
-            <BsTelephone size={30} className=" hover:text-[#6B0808]" />
-            <p className="text-lg ml-2">(11) 2966-6200</p>
+            <div className="mt-4 flex items-center">
+              <BsTelephone size={30} className="hover:text-[#6B0808]" />
+              <p className="text-sm md:text-lg ml-2">(11) 2966-6200</p>
+            </div>
+
+            <div className="mt-4 flex items-center">
+              <MdOutlineMail size={30} className="hover:text-[#6B0808]" />
+              <p className="text-sm md:text-lg ml-2">
+                <a href="mailto:vendas@batisfer.com.br" className="underline">vendas@batisfer.com.br</a>
+              </p>
+            </div>
           </div>
-          <div className="mt-4 flex items-center">
-            <MdOutlineMail size={30} className=" hover:text-[#6B0808]" />
-            <p className="text-lg ml-2">
-              <a href="mailto:vendas@batisfer.com.br" className="underline">vendas@batisfer.com.br</a>
+          </div>
+          </div>
+          {/* Centralizar os direitos e o desenvolvimento */}
+          <div className="w-full flex flex-col justify-center items-center  text-center text-[#1a1919de] bg-gray-200">
+            <p>&copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.</p>
+            <p className="text-gray-500 text-sm mt-1">
+              <a href="mailto:annxsbea@gmail.com" className="underline">Developed by: Annxsbea</a>
             </p>
-          </div>
-        </div>
+    
+
+
+
       </div>
-
-      {/* Direitos reservados */}
-      <div className="flex justify-center items-center text-[#1a1919de] bg-gray-200 py-4 px-4 relative">
-        <p>&copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.</p>
-        <p className="lg:absolute lg:right-4  text-gray-500 text-sm">
-          <a href="mailto:annxsbea@gmail.com" className="underline">Developed by: Annxsbea</a>
-        </p>
-      </div>
-
-
     </footer>
   );
 };

@@ -109,9 +109,7 @@ const Navbar = () => {
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
           <Link href="/" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Home
-          </Link>  <Link href="/?q=quem-somos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
-            Empresa
-          </Link>
+       
           <Link href="/?q=servicos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Serviços
           </Link>
@@ -153,6 +151,9 @@ const Navbar = () => {
           <Link href="/?q=contato" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Contato
           </Link>
+          </Link>  <Link href="/?q=quem-somos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+            Empresa
+          </Link>
 
           <a
             href="https://wa.me/5511980976575"
@@ -180,9 +181,7 @@ const Navbar = () => {
               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Home
               </Link>
-              <Link href="/?q=quem-somos" onClick={toggleMenu} className="hover:text-gray-400">
-                Empresa
-              </Link>
+          
               <Link href="/?q=servicos" onClick={toggleMenu} className="hover:text-gray-400">
                 Serviços
               </Link>
@@ -224,6 +223,9 @@ const Navbar = () => {
               </DropdownMenu>
               <Link href="/?q=contato" onClick={toggleMenu} className="hover:text-gray-400">
                 Contato
+              </Link>
+              <Link href="/?q=quem-somos" onClick={toggleMenu} className="hover:text-gray-400">
+                Empresa
               </Link>
               <a
                 href="https://wa.me/5511980976575"

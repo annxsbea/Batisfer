@@ -30,6 +30,7 @@ import tubosretangulares from "@/assents/FotosProdutos/Tubos/tubosretangulares.j
 import vigau from "@/assents/FotosProdutos/Vigas/vigau.jpg";
 import vigah from "@/assents/FotosProdutos/Vigas/vigaw.jpg";
 import chapafinafrio from "@/assents/FotosProdutos/Chapas/chapafinafrio.jpg";
+import chapaoxicortada from "@/assents/FotosProdutos/Chapas/chapaoxicortada.jpg";
 interface Produto {
     id: number;
     nome: string;
@@ -69,11 +70,18 @@ const produtos: ProdutosCategoria = {
             imagem: chapagrossa,
         },
         {
-            id: 4,
+            id: 5,
             nome: "Chapa Xadrez",
             descricao: "",
             imagem: chapaxadrez,
         },
+        {
+            id:6,
+            nome: "Chapa Oxicortada",
+            descricao: "",
+            imagem: chapaoxicortada,
+        }
+
     ],
     vigas: [
         {
