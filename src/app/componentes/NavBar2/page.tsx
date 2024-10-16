@@ -109,7 +109,7 @@ const Navbar = () => {
         <nav className="hidden lg:flex space-x-10 text-[20px] font-bold">
           <Link href="/" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Home
-       
+          </Link>  
           <Link href="/?q=servicos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Serviços
           </Link>
@@ -151,7 +151,7 @@ const Navbar = () => {
           <Link href="/?q=contato" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Contato
           </Link>
-          </Link>  <Link href="/?q=quem-somos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+          <Link href="/?q=quem-somos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Empresa
           </Link>
 
@@ -181,7 +181,7 @@ const Navbar = () => {
               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Home
               </Link>
-          
+             
               <Link href="/?q=servicos" onClick={toggleMenu} className="hover:text-gray-400">
                 Serviços
               </Link>
