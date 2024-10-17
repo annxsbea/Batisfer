@@ -19,8 +19,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const navbarHeight = 78;
-  const navbarHeightMobile = 100;
+  const navbarHeight = 80;
+  const navbarHeigh2= 80;
+
+  const navbarHeightMobile = 200;
 
   useEffect(() => {
     const querySplit = window.location.href.split('?q=');
@@ -117,11 +119,6 @@ const Navbar = () => {
           <ScrollLink to="home" smooth={true} duration={500} offset={-navbarHeight}  className={`hover:text-gray-400 cursor-pointer ${activeSection === 'home' ? 'border-b-4 border-red-500' : ''}`}>
             Home
           </ScrollLink>
-        
-          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeightMobile}   className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
-            Serviços
-          </ScrollLink>
-
           <div className="relative" ref={dropdownRef} onMouseLeave={handleMouseLeave}>
           <button
             onClick={toggleDropdown}
@@ -155,6 +152,11 @@ const Navbar = () => {
             </ul>
           )}
         </div>
+        
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeigh2}   className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+            Serviços
+          </ScrollLink>
+
 
     <ScrollLink to="contato" smooth={true} duration={500}  offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
   Contato
@@ -188,10 +190,6 @@ const Navbar = () => {
             <nav className="flex flex-col space-y-3 mt-8 text-[22px]">
               <ScrollLink to="home" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Home
-              </ScrollLink>
-            
-              <ScrollLink to="servicos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeightMobile} className="hover:text-gray-400">
-                Serviços
               </ScrollLink>
 
               <DropdownMenu>
@@ -227,6 +225,10 @@ const Navbar = () => {
                   </DropdownMenuContent>
                 )}
               </DropdownMenu>
+            
+              <ScrollLink to="servicos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeightMobile} className="hover:text-gray-400">
+                Serviços
+              </ScrollLink>
 
               <ScrollLink to="contato" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Contato
@@ -234,6 +236,15 @@ const Navbar = () => {
               <ScrollLink to="quem-somos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Empresa
               </ScrollLink>
+              <a
+                href="https://wa.me/5511980976575"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 text-black rounded-full hover:bg-green-600 hover:text-white"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                <span>Enviar Cotação</span>
+              </a>
             </nav>
           </div>
         </div>

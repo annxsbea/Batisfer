@@ -41,9 +41,9 @@ export default function Home() {
       </motion.section>
 
       {/* Seções da página */}
-      
-      <Servicos />
       <Produtos />
+      <Servicos />
+    
       <Contato />
       <QuemSomos />
 

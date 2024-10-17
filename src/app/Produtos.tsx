@@ -94,7 +94,7 @@ export function Produtos() {
       exit={{ opacity: 0, y: -20 }} 
       transition={{ duration: 0.5 }} 
     >
-      <div className="container mx-auto px-4 mt-12">
+      <div className="container mx-auto px-4 mt-20">
         <div className="container mx-auto text-center px-4 mb-5 text-black ">
           <h2 className="text-4xl font-semibold mb-5 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">
             Produtos

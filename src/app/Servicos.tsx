@@ -41,7 +41,7 @@ const servicos = [
 ];
 export default function Servicos() {
   return (
-    <div className="mt-[-100px] sm:mt-[-70px]">
+    <div className="my-28 ">
       <motion.section
         id="servicos"
         className="min-h-screen flex items-center justify-center px-4"
@@ -51,7 +51,7 @@ export default function Servicos() {
       >
         <div className="container mx-auto text-center text-black">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-12 sm:mb-16 lg:mb-8 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">
-            Serviços
+            Produtos e Serviços
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {servicos.map(servico => (

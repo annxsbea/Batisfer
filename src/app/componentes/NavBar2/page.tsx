@@ -110,10 +110,6 @@ const Navbar = () => {
           <Link href="/" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Home
           </Link>  
-          <Link href="/?q=servicos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
-            Serviços
-          </Link>
-
 
           <div className="relative" ref={dropdownRef} onMouseLeave={handleMouseLeave}>
             <button
@@ -148,6 +144,10 @@ const Navbar = () => {
               </ul>
             )}
           </div>
+          <Link href="/?q=servicos" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
+            Serviços
+          </Link>
+
           <Link href="/?q=contato" className="hover:text-gray-400" onClick={() => { scrollToSection('contato'); closeDropdown(); }}>
             Contato
           </Link>
@@ -180,10 +180,6 @@ const Navbar = () => {
             <nav className="flex flex-col space-y-3 mt-8 text-[22px]">
               <Link href="/" onClick={toggleMenu} className="hover:text-gray-400">
                 Home
-              </Link>
-             
-              <Link href="/?q=servicos" onClick={toggleMenu} className="hover:text-gray-400">
-                Serviços
               </Link>
 
               <DropdownMenu>
@@ -221,6 +217,10 @@ const Navbar = () => {
                 )}
 
               </DropdownMenu>
+             
+              <Link href="/?q=servicos" onClick={toggleMenu} className="hover:text-gray-400">
+                Serviços
+              </Link>
               <Link href="/?q=contato" onClick={toggleMenu} className="hover:text-gray-400">
                 Contato
               </Link>
