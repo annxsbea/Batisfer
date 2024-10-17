@@ -21,6 +21,7 @@ const Navbar = () => {
 
   const navbarHeight = 80;
   const navbarHeigh2= 80;
+  const navbarHeightEmpresa = 250;
 
   const navbarHeightMobile = 200;
 
@@ -39,7 +40,7 @@ const Navbar = () => {
     const handleScroll = () => {
 
 
-      const sections = ['home', 'quem-somos', 'servicos', 'produtos', 'contato'];
+      const sections = ['home','produtos', 'servicos',  'contato', 'quem-somos'];
       let currentSection = 'home';
 
       sections.forEach((section) => {
@@ -161,7 +162,7 @@ const Navbar = () => {
     <ScrollLink to="contato" smooth={true} duration={500}  offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
   Contato
 </ScrollLink>
-<ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
+ <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeightEmpresa} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
             Empresa
           </ScrollLink>
 

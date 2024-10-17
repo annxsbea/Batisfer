@@ -19,10 +19,10 @@ const InfoItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 export default function QuemSomos() {
   return (
-    <div className="my-[-28px] ">
+    <div className="my-10">
       <motion.section
         id="quem-somos"
-        className="min-h-screen flex items-center justify-center px-4 sm:px-10"
+        className=" flex items-center justify-center px-4 sm:px-10"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}

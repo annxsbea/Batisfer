@@ -10,7 +10,7 @@ import logo1 from "../../../assents/logo1.png";
 const Footer = () => {
   return (
     <footer className="text-[#201E1E] font-semibold w-full  bg-gray-100">
-      <div className="flex flex-col md:flex-row justify-between items-start bg-gray-200 py-8 px-16 space-y-8 md:px-3 md:space-x-5">
+      <div className="flex flex-col md:flex-row justify-between items-start bg-gray-200 py-8 px-5 space-y-8 md:px-3 md:space-x-5">
 
         {/* Logo */}
         <div className="flex flex-col justify-center items-center md:items-start lg:items-start">
