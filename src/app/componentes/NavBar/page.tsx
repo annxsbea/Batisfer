@@ -234,7 +234,7 @@ const Navbar = () => {
               <ScrollLink to="contato" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
                 Contato
               </ScrollLink>
-              <ScrollLink to="quem-somos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeight} className="hover:text-gray-400">
+              <ScrollLink to="quem-somos" smooth={true} duration={500} onClick={toggleMenu} offset={-navbarHeightEmpresa} className="hover:text-gray-400">
                 Empresa
               </ScrollLink>
               <a
