@@ -83,9 +83,9 @@ export default function Contato() {
   };
 
   return (
-    <div className='lg:mt-[120px]'>
-      <motion.section id="contato" className="min-h-screen flex items-center justify-center" initial="hidden" animate="visible">
-        <div className="container mx-auto text-center px-4 py-20 text-black">
+    <div className=' my-10'>
+      <motion.section id="contato" className=" flex items-center justify-center" initial="hidden" animate="visible">
+        <div className=" mx-auto text-center px-4  text-black">
           <h2 className="text-4xl font-semibold mb-5 text-[#6B0808] border-b-2 border-[#6B0808] inline-block">Contato</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
