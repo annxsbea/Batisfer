@@ -93,19 +93,26 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          </div>
-          </div>
-          {/* Centralizar os direitos e o desenvolvimento */}
-          <div className="w-full flex flex-col justify-center items-center  text-center text-[#1a1919de] bg-gray-200">
-            <p>&copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.</p>
-            <p className="text-gray-500 text-sm mt-1">
-              <a href="mailto:annxsbea@gmail.com" className="underline">Developed by: Annxsbea</a>
-            </p>
-    
-
-
-
+        </div>
       </div>
+      {/* Centralizar os direitos e o desenvolvimento */}
+      <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center text-[#1a1919de] bg-gray-200 p-2">
+  <p className="text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+    &copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.
+  </p>
+  <p className="text-gray-500 text-sm mt-2 md:mt-0 md:absolute md:right-4">
+    <a href="mailto:annxsbea@gmail.com" className="underline">Developed by: Annxsbea</a>
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
     </footer>
   );
 };
