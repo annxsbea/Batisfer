@@ -80,17 +80,16 @@ export default function Home() {
   <QuemSomos />
 </motion.section>
 
-      {/* Botão WhatsApp */}
-      <a
-        href="https://api.whatsapp.com/send?phone=5511980976575"
-        className="fixed bottom-10 right-6 bg-green-500 rounded-full p-2 shadow-lg"
+<a
+        href="https://api.whatsapp.com/send?phone=5511980976575" 
+        className="fixed bottom-10 right-6"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp para atendimento"
+        aria-label="WhatsApp"
       >
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="Ícone do WhatsApp"
+          alt="WhatsApp"
           className="w-12 h-12"
           width={100}
           height={100}
