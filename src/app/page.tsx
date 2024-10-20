@@ -82,7 +82,7 @@ export default function Home() {
 
       <a
         href="https://api.whatsapp.com/send?phone=5511980976575" 
-        className="fixed bottom-10 right-6"
+        className="fixed bottom-10 right-16 lg:right-8"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
