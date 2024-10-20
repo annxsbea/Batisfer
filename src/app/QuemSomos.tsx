@@ -19,7 +19,7 @@ const InfoItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 export default function QuemSomos() {
   return (
-    <div className="my-32">
+    <div className=" ">
       <motion.section
         id="quem-somos"
         className=" flex items-center justify-center px-4 sm:px-10"

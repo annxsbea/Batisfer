@@ -41,10 +41,10 @@ const servicos = [
 ];
 export default function Servicos() {
   return (
-    <div className="my-28 ">
+    <div className="">
       <motion.section
         id="servicos"
-        className="min-h-screen flex items-center justify-center px-4"
+        className="flex items-center justify-center px-4"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}

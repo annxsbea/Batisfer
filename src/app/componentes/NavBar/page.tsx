@@ -20,8 +20,10 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navbarHeight = 80;
-  const navbarHeigh2= 80;
-  const navbarHeightEmpresa = 250;
+  const navbarHeight2= 80;
+  const navbarHeightservicos= 180;
+
+  const navbarHeightEmpresa = 180;
 
   const navbarHeightMobile = 200;
 
@@ -40,7 +42,8 @@ const Navbar = () => {
     const handleScroll = () => {
 
 
-      const sections = ['home','produtos', 'servicos',  'contato', 'quem-somos'];
+      const sections = ['home', 'produtos', 'servicos', 'contato', 'quem-somos'];
+
       let currentSection = 'home';
 
       sections.forEach((section) => {
@@ -154,17 +157,24 @@ const Navbar = () => {
           )}
         </div>
         
-          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeigh2}   className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
+          <ScrollLink to="servicos" smooth={true} duration={500} offset={-navbarHeightservicos}   className={`hover:text-gray-400 cursor-pointer ${activeSection === 'servicos' ? 'border-b-4 border-red-500' : ''}`}>
             Serviços
           </ScrollLink>
 
 
-    <ScrollLink to="contato" smooth={true} duration={500}  offset={-navbarHeight} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
+    <ScrollLink to="contato" smooth={true} duration={500}  offset={-navbarHeightEmpresa} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'contato' ? 'border-b-4 border-red-500' : ''}`}>
   Contato
 </ScrollLink>
- <ScrollLink to="quem-somos" smooth={true} duration={500} offset={-navbarHeightEmpresa} className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}>
-            Empresa
-          </ScrollLink>
+<ScrollLink
+  to="quem-somos"
+  smooth={true}
+  duration={500}
+  offset={-navbarHeightEmpresa}
+  className={`hover:text-gray-400 cursor-pointer ${activeSection === 'quem-somos' ? 'border-b-4 border-red-500' : ''}`}
+>
+  Empresa
+</ScrollLink>
+
 
           <a
             href="https://wa.me/5511980976575"

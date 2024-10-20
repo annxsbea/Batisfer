@@ -1,5 +1,4 @@
-'use client';
-
+  'use client';
 import Image from "next/image";
 import HomeImage from "../assents/Designer.jpeg";
 import { motion } from "framer-motion";
@@ -34,23 +33,57 @@ export default function Home() {
             alt="Designer"
             layout="fill"
             objectFit="cover"
-            className="opacity-45" // Melhor controle de opacidade
+            className="opacity-45"
             priority
           />
         </div>
       </motion.section>
 
-      {/* Seções da página */}
-      <Produtos />
-      <Servicos />
-    
-      <Contato />
-      <QuemSomos />
+      {/* Seções da página com altura mínima padronizada */}
+      <motion.section
+  id="produtos"
+  className="min-h-[80vh] mb-16 flex items-center justify-center" // Adiciona margin-bottom
+  initial="hidden"
+  animate="visible"
+  variants={sectionVariants}
+>
+  <Produtos />
+</motion.section>
+
+<motion.section
+  id="servicos"
+  className="min-h-[80vh] mb-16 flex items-center justify-center" // Adiciona margin-bottom
+  initial="hidden"
+  animate="visible"
+  variants={sectionVariants}
+>
+  <Servicos />
+</motion.section>
+
+<motion.section
+  id="contato"
+  className="min-h-[80vh] mb-2 flex items-center justify-center" // Adiciona margin-bottom
+  initial="hidden"
+  animate="visible"
+  variants={sectionVariants}
+>
+  <Contato />
+</motion.section>
+
+<motion.section
+  id="quem-somos"
+  className="min-h-[80vh] mb-16 flex items-center justify-center" // Adiciona margin-bottom
+  initial="hidden"
+  animate="visible"
+  variants={sectionVariants}
+>
+  <QuemSomos />
+</motion.section>
 
       {/* Botão WhatsApp */}
       <a
         href="https://api.whatsapp.com/send?phone=5511980976575"
-        className="fixed bottom-10 right-6 bg-green-500 rounded-full p-2 shadow-lg"
+        className="fixed bottom-10 right-6 shadow-lg"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp para atendimento"
