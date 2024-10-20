@@ -1,4 +1,4 @@
-  'use client';
+'use client';
 import Image from "next/image";
 import HomeImage from "../assents/Designer.jpeg";
 import { motion } from "framer-motion";
@@ -22,7 +22,7 @@ export default function Home() {
       {/* Seção de Home com imagem de fundo */}
       <motion.section
         id="home"
-        className="h-[55vh] mb-10 bg-black flex items-center justify-center relative"
+        className="h-[50vh] md:h-[60vh] lg:h-[70vh] mb-10 bg-black flex items-center justify-center relative"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -41,46 +41,46 @@ export default function Home() {
 
       {/* Seções da página com altura mínima padronizada */}
       <motion.section
-  id="produtos"
-  className="min-h-[75vh]  items-center justify-center" // Adiciona margin-bottom
-  initial="hidden"
-  animate="visible"
-  variants={sectionVariants}
->
-  <Produtos />
-</motion.section>
+        id="produtos"
+        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[75vh] mb-16  items-center justify-center"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
+        <Produtos />
+      </motion.section>
 
-<motion.section
-  id="servicos"
-  className="min-h-[80vh] mb-16  items-center justify-center" // Adiciona margin-bottom
-  initial="hidden"
-  animate="visible"
-  variants={sectionVariants}
->
-  <Servicos />
-</motion.section>
+      <motion.section
+        id="servicos"
+        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[80vh] mb-16 flex items-center justify-center"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
+        <Servicos />
+      </motion.section>
 
-<motion.section
-  id="contato"
-  className="min-h-[80vh] mb-14  items-center justify-center" // Adiciona margin-bottom
-  initial="hidden"
-  animate="visible"
-  variants={sectionVariants}
->
-  <Contato />
-</motion.section>
+      <motion.section
+        id="contato"
+        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[80vh] mb-14 flex items-center justify-center"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
+        <Contato />
+      </motion.section>
 
-<motion.section
-  id="quem-somos"
-  className="min-h-[80vh] mb-16  items-center justify-center" // Adiciona margin-bottom
-  initial="hidden"
-  animate="visible"
-  variants={sectionVariants}
->
-  <QuemSomos />
-</motion.section>
+      <motion.section
+        id="quem-somos"
+        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[80vh] mb-16 flex items-center justify-center"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
+        <QuemSomos />
+      </motion.section>
 
-<a
+      <a
         href="https://api.whatsapp.com/send?phone=5511980976575" 
         className="fixed bottom-10 right-6"
         target="_blank"
@@ -90,7 +90,7 @@ export default function Home() {
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           alt="WhatsApp"
-          className="w-12 h-12"
+          className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
           width={100}
           height={100}
         />
