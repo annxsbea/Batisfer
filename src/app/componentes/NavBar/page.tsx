@@ -22,6 +22,7 @@ const Navbar = () => {
 
   const navbarHeight = 80;
   const navbarHeight2 = 80;
+  const navbarHeight3 = 165;
   const navbarHeightservicos = 180;
 
   const navbarHeightEmpresa = 180;
@@ -368,7 +369,7 @@ const Navbar = () => {
                 smooth={true}
                 duration={500}
                 onClick={toggleMenu}
-                offset={-navbarHeight}
+                offset={-navbarHeight3}
                 className="hover:text-gray-400"
               >
                 Contato
