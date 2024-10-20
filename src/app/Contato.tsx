@@ -91,7 +91,7 @@ export default function Contato() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-1 rounded-lg shadow-lg lg:p-16">
               <div className="mt-4 lg:flex justify-between">
-                <h2 className="text-3xl text-center font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
+                <h2 className="text-2xl text-center font-semibold mb-8 lg:text-start text-[#6B0808]">Entre em Contato</h2>
                 <div className="flex flex-col items-center md:flex-row md:items-start md:mt-2">
                   <MdOutlineMail size={30} className="text-gray-800 hover:text-[#6B0808]" />
                   <p className="text-lg ml-2">

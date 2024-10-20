@@ -22,7 +22,7 @@ export default function Home() {
       {/* Seção de Home com imagem de fundo */}
       <motion.section
         id="home"
-        className="h-[55vh] bg-black flex items-center justify-center relative"
+        className="h-[55vh] mb-10 bg-black flex items-center justify-center relative"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -42,7 +42,7 @@ export default function Home() {
       {/* Seções da página com altura mínima padronizada */}
       <motion.section
   id="produtos"
-  className="min-h-[80vh] mb-16 flex items-center justify-center" // Adiciona margin-bottom
+  className="min-h-[75vh]  items-center justify-center" // Adiciona margin-bottom
   initial="hidden"
   animate="visible"
   variants={sectionVariants}
@@ -52,7 +52,7 @@ export default function Home() {
 
 <motion.section
   id="servicos"
-  className="min-h-[80vh] mb-16 flex items-center justify-center" // Adiciona margin-bottom
+  className="min-h-[80vh] mb-16  items-center justify-center" // Adiciona margin-bottom
   initial="hidden"
   animate="visible"
   variants={sectionVariants}
@@ -62,7 +62,7 @@ export default function Home() {
 
 <motion.section
   id="contato"
-  className="min-h-[80vh] mb-2 flex items-center justify-center" // Adiciona margin-bottom
+  className="min-h-[80vh] mb-14  items-center justify-center" // Adiciona margin-bottom
   initial="hidden"
   animate="visible"
   variants={sectionVariants}
@@ -72,7 +72,7 @@ export default function Home() {
 
 <motion.section
   id="quem-somos"
-  className="min-h-[80vh] mb-16 flex items-center justify-center" // Adiciona margin-bottom
+  className="min-h-[80vh] mb-16  items-center justify-center" // Adiciona margin-bottom
   initial="hidden"
   animate="visible"
   variants={sectionVariants}
@@ -83,7 +83,7 @@ export default function Home() {
       {/* Botão WhatsApp */}
       <a
         href="https://api.whatsapp.com/send?phone=5511980976575"
-        className="fixed bottom-10 right-6 shadow-lg"
+        className="fixed bottom-10 right-6 bg-green-500 rounded-full p-2 shadow-lg"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp para atendimento"
