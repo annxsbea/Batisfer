@@ -132,7 +132,7 @@ const Navbar = () => {
             priority
           />
         </ScrollLink>
-        <div className="flex flex-col mt-10 lg:mt-16 lg:mr-14 items-start space-y-1 text-sm text-gray-600">
+        <div className="flex flex-col text-[11px] ml-4 lg: lg:mr-14 items-start space-y-1 md:text-sm text-gray-600">
           <div className="flex items-center space-x-1">
             <FaWhatsapp className="w-4 h-4" />
             <a

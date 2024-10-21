@@ -116,13 +116,13 @@ export function Produtos() {
                 <div className="p-1">
                   <Card className="bg-[#F9F9F9]">
                     <CardContent className="flex flex-col items-center justify-center p-6">
-                      <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 ">
+                      <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 flex items-center justify-center mb-4 ">
                         <Image
                           src={produto.imagem}
                           alt={`Imagem do ${produto.nome}`}
                           width={220}
                           height={220}
-                          className="w-36 h-36 object-cover rounded-md md:w-52 md:h-52 lg:w-56 lg:h-56"
+                          className="w-28 h-28 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-w-64 object-cover rounded-md "
                         />
                       </div>
                       <a href={produto.link} className="text-lg font-semibold text-[#000] hover:underline">

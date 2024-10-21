@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../../../assents/Logo.png';
 import Text from '@/assents/Text.png'
 import Link from "next/link";
-import { FaAngleDown, FaAngleUp, FaWhatsapp } from 'react-icons/fa';
+import { FaAngleDown, FaAngleUp, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +13,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { IoIosArrowDown } from 'react-icons/io';
+import { MdOutlineMail } from 'react-icons/md';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -95,6 +96,27 @@ const Navbar = () => {
           <Image src={Text} alt="Text" width={150} height={250} className=" h-auto" priority />
 
         </Link>
+        <div className="flex flex-col text-[11px] ml-4 lg: lg:mr-14 items-start space-y-1 md:text-sm text-gray-600">
+          <div className="flex items-center space-x-1">
+            <FaWhatsapp className="w-4 h-4" />
+            <a
+              href="https://wa.me/5511980976575"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              (11) 98097-6575
+            </a>
+          </div>
+          <div className="flex items-center space-x-2">
+            <FaPhoneAlt className="w-4 h-4" />
+            <a href="tel:+551129668200">(11) 2966-6200</a>
+          </div>
+          <div className="flex items-center space-x-2">
+            <MdOutlineMail className="w-4 h-4" />
+            <a href="mailto:vendas@batisfer.com.br">vendas@batisfer.com.br</a>
+          </div>
+        </div>
+
 
         <button
           className="mr-10 lg:hidden text-gray-700 focus:outline-none"
