@@ -23,9 +23,9 @@ const Navbar = () => {
   const navbarHeight = 80;
   const navbarHeight2 = 80;
   const navbarHeight3 = 165;
-  const navbarHeightservicos = 100;
+  const navbarHeightservicos = 170;
 
-  const navbarHeightEmpresa = 120;
+  const navbarHeightEmpresa = 180;
   const navbarHeightEmpresa2 = 180;
 
   const navbarHeightEContato = 180;
