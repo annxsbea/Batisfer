@@ -23,9 +23,13 @@ const Navbar = () => {
   const navbarHeight = 80;
   const navbarHeight2 = 80;
   const navbarHeight3 = 165;
-  const navbarHeightservicos = 180;
+  const navbarHeightservicos = 100;
 
-  const navbarHeightEmpresa = 180;
+  const navbarHeightEmpresa = 120;
+  const navbarHeightEmpresa2 = 180;
+
+  const navbarHeightEContato = 180;
+
 
   const navbarHeightMobile = 200;
 
@@ -247,7 +251,7 @@ const Navbar = () => {
             to="contato"
             smooth={true}
             duration={500}
-            offset={-navbarHeightEmpresa}
+            offset={-navbarHeightEContato}
             className={`hover:text-gray-400 cursor-pointer ${
               activeSection === "contato" ? "border-b-4 border-red-500" : ""
             }`}
@@ -379,7 +383,7 @@ const Navbar = () => {
                 smooth={true}
                 duration={500}
                 onClick={toggleMenu}
-                offset={-navbarHeightEmpresa}
+                offset={-navbarHeightEmpresa2}
                 className="hover:text-gray-400"
               >
                 Empresa

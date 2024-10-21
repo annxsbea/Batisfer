@@ -41,7 +41,7 @@ const servicos = [
 ];
 export default function Servicos() {
   return (
-    <div className="">
+    <div className="mt[-300px]">
       <motion.section
         id="servicos"
         className="flex items-center justify-center px-4"

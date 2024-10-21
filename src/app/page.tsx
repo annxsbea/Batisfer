@@ -42,7 +42,7 @@ export default function Home() {
       {/* Seções da página com altura mínima padronizada */}
       <motion.section
         id="produtos"
-        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[75vh] mb-16  items-center justify-center"
+        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[75vh] mb-[-130px] lg:mb-[-390px]  items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -52,7 +52,7 @@ export default function Home() {
 
       <motion.section
         id="servicos"
-        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[80vh] mb-16 flex items-center justify-center"
+        className="min-h-[50vh] mb-[50px] md:min-h-[60vh] lg:min-h-[80vh]  md:mb-[20px] lg:mb-[-40px] flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -62,7 +62,7 @@ export default function Home() {
 
       <motion.section
         id="contato"
-        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[80vh] mb-14 flex items-center justify-center"
+        className="min-h-[50vh] mb-[50px] md:min-h-[60vh] lg:min-h-[80vh] md:mb-[20px] lg:mb-[-100px] flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
@@ -72,7 +72,7 @@ export default function Home() {
 
       <motion.section
         id="quem-somos"
-        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[80vh] mb-16 flex items-center justify-center"
+        className="min-h-[50vh] mb-[50px] md:min-h-[60vh] lg:min-h-[80vh]  md:mb-[20px] lg:mb-[-100px]  flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
