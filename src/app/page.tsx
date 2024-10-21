@@ -42,7 +42,7 @@ export default function Home() {
       {/* Seções da página com altura mínima padronizada */}
       <motion.section
         id="produtos"
-        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[75vh] mb-[50px] lg:mb-[20px]  items-center justify-center"
+        className="min-h-[50vh] md:min-h-[60vh] lg:min-h-[75vh] mb-[-80px] lg:mb-[20px]  items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
