@@ -57,7 +57,7 @@ export default function Contato() {
       formData.append('attachment', formValues.attachment);
     }
   
-    console.log('FormData enviado:', Array.from(formData.entries())); // Para depuração
+    console.log('FormData enviado:', Array.from(formData.entries())); 
   
     try {
       const response = await fetch('/api/send', {

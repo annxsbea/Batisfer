@@ -72,7 +72,7 @@ export default function Home() {
 
       <motion.section
         id="quem-somos"
-        className="min-h-[50vh] mb-[50px] md:min-h-[60vh] lg:min-h-[80vh]  md:mb-[20px] lg:mb-[-100px]  flex items-center justify-center"
+        className="min-h-[50vh] mb-[50px] md:min-h-[60vh] lg:min-h-[80vh]  md:mb-[20px] lg:mb-[-50px]  flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
