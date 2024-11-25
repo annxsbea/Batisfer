@@ -1,6 +1,7 @@
 import { Resend } from 'resend';
 import { EmailTemplate } from '../../componentes/email-templantes';
 import { NextRequest, NextResponse } from 'next/server';
+import { Buffer } from 'buffer';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -12,21 +13,17 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const message = formData.get('message') as string;
-    const attachment = formData.get('attachment');
+    const attachment = formData.get('attachment') as File | null;
 
-    // Validação dos campos obrigatórios
     if (!name || !company || !email || !phone || !message) {
       return NextResponse.json({ error: 'Todos os campos são obrigatórios.' }, { status: 400 });
     }
 
-    // Variáveis para o anexo
     let attachmentBuffer: Buffer | null = null;
     let attachmentName = '';
-    let attachmentType = '';
     let hasAttachment = false;
 
-    if (attachment && attachment instanceof File) {
-      // Validação do tamanho do arquivo
+    if (attachment) {
       if (attachment.size > 5 * 1024 * 1024) {
         return NextResponse.json(
           { error: 'O tamanho do anexo excede o limite permitido de 5MB.' },
@@ -34,7 +31,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         );
       }
 
-      // Validação do tipo do arquivo
       const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
       if (!allowedTypes.includes(attachment.type)) {
         return NextResponse.json(
@@ -43,27 +39,25 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         );
       }
 
-      // Processamento do anexo
       const arrayBuffer = await attachment.arrayBuffer();
       attachmentBuffer = Buffer.from(arrayBuffer);
       attachmentName = attachment.name;
-      attachmentType = attachment.type;
-      hasAttachment = true;
+      console.log(`Anexo detectado: ${attachmentName}, Tipo: ${attachment.type}`);
 
-      console.log(`Anexo detectado: ${attachmentName}, Tipo: ${attachmentType}`);
+      hasAttachment = true;
     }
 
     const { data, error } = await resend.emails.send({
       from: 'FormContato@batisfer.com.br',
-      to: ['annasoares.bb@gmail.com'],
+      to: ['vendas@batisfer.com.br'],
       subject: 'Novo contato do site',
       react: EmailTemplate({ name, company, email, phone, message, hasAttachment }),
-      attachments: hasAttachment && attachmentBuffer
+      attachments: hasAttachment
         ? [
             {
               filename: attachmentName,
-              content: attachmentBuffer.toString('base64'),
-              contentType: attachmentType || 'application/octet-stream',
+              content: attachmentBuffer!.toString('base64'),
+              contentType: attachment?.type || 'application/octet-stream',
             },
           ]
         : [],
