@@ -15,15 +15,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const message = formData.get('message') as string;
     const attachment = formData.get('attachment');
 
-    // Verifica se há anexo
+    // Variáveis para o anexo
     let attachmentBuffer: Buffer | null = null;
     let attachmentName = '';
     let hasAttachment = false;
 
-    if (attachment && typeof attachment === 'object' && 'arrayBuffer' in attachment) {
+    if (attachment && attachment instanceof Blob) {
       const arrayBuffer = await attachment.arrayBuffer();
       attachmentBuffer = Buffer.from(arrayBuffer);
-      attachmentName = attachment.name || 'attachment';
+      attachmentName = attachment instanceof File ? attachment.name : 'attachment';
       hasAttachment = true;
     } else {
       console.log('Nenhum anexo válido encontrado ou não recebido.');

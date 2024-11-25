@@ -46,7 +46,7 @@ export default function Contato() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-
+  
     const formData = new FormData();
     formData.append('name', formValues.name);
     formData.append('company', formValues.company);
@@ -56,32 +56,32 @@ export default function Contato() {
     if (formValues.attachment) {
       formData.append('attachment', formValues.attachment);
     }
-
+  
+    console.log('FormData enviado:', Array.from(formData.entries())); // Para depuração
+  
     try {
       const response = await fetch('/api/send', {
         method: 'POST',
         body: formData,
       });
-
+  
       if (response.ok) {
-        toast({ title: "Sucesso!", description: "Email enviado com sucesso.", variant:"default"});
-     
+        toast({ title: "Sucesso!", description: "Email enviado com sucesso.", variant: "default" });
         setFormValues({ name: '', company: '', email: '', phone: '', message: '', attachment: null });
       } else {
         toast({
           title: "Erro ao enviar email!",
           description: "Ocorreu um erro ao enviar o email. Tente novamente.",
-          action: <ToastAction altText="Try again">Tente novamente</ToastAction>,
           variant: "destructive",
         });
       }
     } catch (error) {
-      toast({ title: "Erro!", description: "Erro desconhecido. " + error , variant: "destructive", });
+      toast({ title: "Erro!", description: "Erro desconhecido. " + error, variant: "destructive" });
     } finally {
       setIsLoading(false);
     }
   };
-
+  
   return (
     <div className=' '>
       <motion.section id="contato" className=" flex items-center justify-center" initial="hidden" animate="visible">
