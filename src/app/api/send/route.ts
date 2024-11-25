@@ -6,7 +6,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    // Obtém os dados do formulário
     const formData = await req.formData();
     const name = formData.get('name') as string;
     const company = formData.get('company') as string;
@@ -15,7 +14,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const message = formData.get('message') as string;
     const attachment = formData.get('attachment');
 
-    // Variáveis para o anexo
     let attachmentBuffer: Buffer | null = null;
     let attachmentName = '';
     let hasAttachment = false;
@@ -29,7 +27,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       console.log('Nenhum anexo válido encontrado ou não recebido.');
     }
 
-    // Envia o e-mail utilizando a API Resend
     const { data, error } = await resend.emails.send({
       from: 'FormContato@batisfer.com.br',
       to: ['annasoares.bb@gmail.com'],
@@ -41,7 +38,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }] : [],
     });
 
-    // Verifica erros ao enviar o e-mail
     if (error) {
       console.error('Erro ao enviar e-mail:', error);
       return NextResponse.json(
@@ -50,7 +46,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Verifica se há retorno de dados
     if (!data) {
       console.error('Nenhum dado retornado após envio do e-mail');
       return NextResponse.json({ error: 'Nenhum dado retornado' }, { status: 500 });
