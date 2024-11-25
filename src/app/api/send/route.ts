@@ -14,48 +14,74 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const message = formData.get('message') as string;
     const attachment = formData.get('attachment');
 
+    // Validação dos campos obrigatórios
+    if (!name || !company || !email || !phone || !message) {
+      return NextResponse.json({ error: 'Todos os campos são obrigatórios.' }, { status: 400 });
+    }
+
+    // Variáveis para o anexo
     let attachmentBuffer: Buffer | null = null;
-    let attachmentName = 'attachment';
+    let attachmentName = '';
+    let attachmentType = '';
     let hasAttachment = false;
 
-    if (attachment && attachment instanceof Blob) {
+    if (attachment && attachment instanceof File) {
+      // Validação do tamanho do arquivo
+      if (attachment.size > 5 * 1024 * 1024) {
+        return NextResponse.json(
+          { error: 'O tamanho do anexo excede o limite permitido de 5MB.' },
+          { status: 400 }
+        );
+      }
+
+      // Validação do tipo do arquivo
+      const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+      if (!allowedTypes.includes(attachment.type)) {
+        return NextResponse.json(
+          { error: 'Tipo de anexo não permitido.' },
+          { status: 400 }
+        );
+      }
+
+      // Processamento do anexo
       const arrayBuffer = await attachment.arrayBuffer();
       attachmentBuffer = Buffer.from(arrayBuffer);
+      attachmentName = attachment.name;
+      attachmentType = attachment.type;
       hasAttachment = true;
-      attachmentName = 'attachment';
-    } else {
-      console.log('Nenhum anexo válido encontrado ou não recebido.');
+
+      console.log(`Anexo detectado: ${attachmentName}, Tipo: ${attachmentType}`);
     }
 
     const { data, error } = await resend.emails.send({
       from: 'FormContato@batisfer.com.br',
-      to: ['vendas@batisfer.com.br'],
+      to: ['annasoares.bb@gmail.com'],
       subject: 'Novo contato do site',
       react: EmailTemplate({ name, company, email, phone, message, hasAttachment }),
-      attachments: hasAttachment && attachmentBuffer ? [{
-        filename: attachmentName,
-        content: attachmentBuffer.toString('base64'),
-      }] : [],
+      attachments: hasAttachment && attachmentBuffer
+        ? [
+            {
+              filename: attachmentName,
+              content: attachmentBuffer.toString('base64'),
+              contentType: attachmentType || 'application/octet-stream',
+            },
+          ]
+        : [],
     });
 
     if (error) {
       console.error('Erro ao enviar e-mail:', error);
       return NextResponse.json(
-        { error: error instanceof Error ? error.message : 'Erro desconhecido' },
+        { error: 'Falha no envio do e-mail. Tente novamente mais tarde.' },
         { status: 500 }
       );
-    }
-
-    if (!data) {
-      console.error('Nenhum dado retornado após envio do e-mail');
-      return NextResponse.json({ error: 'Nenhum dado retornado' }, { status: 500 });
     }
 
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
     console.error('Erro na requisição POST:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Erro ao processar a solicitação.' },
+      { error: 'Erro ao processar a solicitação. Tente novamente.' },
       { status: 500 }
     );
   }
