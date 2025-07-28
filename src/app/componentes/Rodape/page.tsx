@@ -76,7 +76,7 @@ const Footer = () => {
               </Link>
               <p className="text-[23px]">/</p> 
               <Link href="https://wa.me/5511997560469" target="_blank" aria-label="WhatsApp">
-                <p className="text-sm md:text-lg underline">(11) 997560469</p>
+                <p className="text-sm md:text-lg underline">(11) 99756-0469</p>
               </Link>
             </div>
 
