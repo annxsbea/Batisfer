@@ -66,7 +66,6 @@ const Footer = () => {
 
         {/* Contato */}
         <div className="flex flex-col justify-between text-[#1a1919de]">
-          {/* Seção de contato no topo */}
           <div className="flex flex-col text-[#1a1919de] items-start">
             <h3 className="font-semibold text-[#6B0808] text-xl mb-2">Contato</h3>
 
@@ -75,9 +74,9 @@ const Footer = () => {
               <Link href="https://wa.me/5511980976575" target="_blank" aria-label="WhatsApp">
                 <p className="text-sm md:text-lg underline">(11) 98097-6575</p>
               </Link>
-              <p className="text-[23px]">/</p> {/* Barra entre os números */}
-              <Link href="https://wa.me/5511942239009" target="_blank" aria-label="WhatsApp">
-                <p className="text-sm md:text-lg underline">(11) 94223-9009</p>
+              <p className="text-[23px]">/</p> 
+              <Link href="https://wa.me/5511997560469" target="_blank" aria-label="WhatsApp">
+                <p className="text-sm md:text-lg underline">(11) 997560469</p>
               </Link>
             </div>
 
@@ -95,7 +94,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* Centralizar os direitos e o desenvolvimento */}
       <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center text-[#1a1919de] bg-gray-200 p-2">
   <p className="text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
     &copy; 2024 <a href="https://www.batisfer.com.br" className="underline">BATISFER</a>. Todos os direitos reservados.
