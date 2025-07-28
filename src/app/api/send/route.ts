@@ -1,6 +1,7 @@
 import { Resend } from 'resend';
 import { EmailTemplate } from '../../componentes/email-templantes';
 import { NextRequest, NextResponse } from 'next/server';
+import { Buffer } from 'buffer';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -12,19 +13,38 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const message = formData.get('message') as string;
-    const attachment = formData.get('attachment');
+    const attachment = formData.get('attachment') as File | null;
+
+    if (!name || !company || !email || !phone || !message) {
+      return NextResponse.json({ error: 'Todos os campos são obrigatórios.' }, { status: 400 });
+    }
 
     let attachmentBuffer: Buffer | null = null;
     let attachmentName = '';
     let hasAttachment = false;
 
-    if (attachment && attachment instanceof Blob) {
+    if (attachment) {
+      if (attachment.size > 5 * 1024 * 1024) {
+        return NextResponse.json(
+          { error: 'O tamanho do anexo excede o limite permitido de 5MB.' },
+          { status: 400 }
+        );
+      }
+
+      const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+      if (!allowedTypes.includes(attachment.type)) {
+        return NextResponse.json(
+          { error: 'Tipo de anexo não permitido.' },
+          { status: 400 }
+        );
+      }
+
       const arrayBuffer = await attachment.arrayBuffer();
       attachmentBuffer = Buffer.from(arrayBuffer);
-      attachmentName = attachment instanceof File ? attachment.name : 'attachment';
+      attachmentName = attachment.name;
+      console.log(`Anexo detectado: ${attachmentName}, Tipo: ${attachment.type}`);
+
       hasAttachment = true;
-    } else {
-      console.log('Nenhum anexo válido encontrado ou não recebido.');
     }
 
     const { data, error } = await resend.emails.send({
@@ -32,30 +52,30 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       to: ['vendas@batisfer.com.br'],
       subject: 'Novo contato do site',
       react: EmailTemplate({ name, company, email, phone, message, hasAttachment }),
-      attachments: hasAttachment && attachmentBuffer ? [{
-        filename: attachmentName,
-        content: attachmentBuffer.toString('base64'),
-      }] : [],
+      attachments: hasAttachment
+        ? [
+            {
+              filename: attachmentName,
+              content: attachmentBuffer!.toString('base64'),
+              contentType: attachment?.type || 'application/octet-stream',
+            },
+          ]
+        : [],
     });
 
     if (error) {
       console.error('Erro ao enviar e-mail:', error);
       return NextResponse.json(
-        { error: error instanceof Error ? error.message : 'Erro desconhecido' },
+        { error: 'Falha no envio do e-mail. Tente novamente mais tarde.' },
         { status: 500 }
       );
-    }
-
-    if (!data) {
-      console.error('Nenhum dado retornado após envio do e-mail');
-      return NextResponse.json({ error: 'Nenhum dado retornado' }, { status: 500 });
     }
 
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
     console.error('Erro na requisição POST:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Erro ao processar a solicitação.' },
+      { error: 'Erro ao processar a solicitação. Tente novamente.' },
       { status: 500 }
     );
   }

@@ -57,7 +57,7 @@ export default function Contato() {
       formData.append('attachment', formValues.attachment);
     }
   
-    console.log('FormData enviado:', Array.from(formData.entries())); // Para depuração
+    console.log('FormData enviado:', Array.from(formData.entries())); 
   
     try {
       const response = await fetch('/api/send', {
@@ -175,6 +175,7 @@ export default function Contato() {
                       id="attachment"
                       name="attachment"
                       onChange={handleFileChange}
+                      accept=".jpg,.jpeg,.png,.doc,.xls,.pdf"
                       className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-red-700"
                     />
                   </div>
